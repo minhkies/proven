@@ -1,0 +1,43 @@
+@import "Upgrade/upgrade";
+
+.side-bar{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: white;
+  font-family: 'Bai Jamjuree', sans-serif;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+}
+
+.right-side-bar{
+  right: 0;
+  left: auto;
+  width: 20vw;
+}
+
+.dark1{
+  background-color: #465461;
+}
+
+.dark2{
+  background-color: #5C6E80;
+}
+.top{
+  justify-content: flex-start;
+}
+
+.collapsed-side-bar{
+  width: 7vw;
+}
