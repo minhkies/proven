@@ -11,5 +11,6 @@ export const defaultInputField = () => {
     return <InputField
         title="Input Heading"
         placeholder="Input Placeholder"
+        width="50%"
     />
 };
