@@ -10,6 +10,7 @@ export default function Menu({menuItems, collapsed, selected}) {
                 return <MenuItem
                     {...o}
                     setSelect={setSelect}
+                    collapsed={collapsed}
                 />
             })}
         </div>

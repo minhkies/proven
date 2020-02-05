@@ -1,11 +1,12 @@
 .menu-item{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: inline-grid;
+  grid-template-columns: minmax(auto, 1fr) 2fr;
   grid-gap: 10px;
   align-items: center;
   width: 15vw;
   background-color: #465461;
   font-family: 'Bai Jamjuree', sans-serif;
+  height: 60px;
   & > * {
     color: white;
   };
@@ -16,4 +17,15 @@
 .active{
   border-left: solid 5px red;
   background-color: #404D59;
+}
+
+.collapsed-menu-item{
+  grid-template-columns: 1fr;
+  width: 7vw;
+  svg{
+    justify-self: center;
+    width: 50%;
+    height: 50%;
+    stroke-width: 1.5px;
+  }
 }
