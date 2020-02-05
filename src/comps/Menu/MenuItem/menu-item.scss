@@ -1,0 +1,19 @@
+.menu-item{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  align-items: center;
+  width: 15vw;
+  background-color: #465461;
+  font-family: 'Bai Jamjuree', sans-serif;
+  & > * {
+    color: white;
+  };
+  svg {
+    justify-self: end;
+}
+}
+.active{
+  border-left: solid 5px red;
+  background-color: #404D59;
+}

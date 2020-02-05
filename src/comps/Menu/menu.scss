@@ -1,0 +1,10 @@
+@import "MenuItem/menu-item";
+
+.menu-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}

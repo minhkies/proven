@@ -1,0 +1,13 @@
+@import "Upgrade/upgrade";
+
+.side-bar{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #465461;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
