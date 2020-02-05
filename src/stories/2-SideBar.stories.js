@@ -38,17 +38,17 @@ export const defaultSidebarWMenu = () => {
     </SideBar>
 };
 
-export const sidebarWLogonMenu = () => {
-    return <SideBar>
-        <Logo/>
-        <Menu
-            menuItems={menuItems}
-            selected={"Dashboard"}
-        />
-    </SideBar>
-};
+// export const sidebarWLogoNMenu = () => {
+//     return <SideBar>
+//         <Logo/>
+//         <Menu
+//             menuItems={menuItems}
+//             selected={"Dashboard"}
+//         />
+//     </SideBar>
+// };
 
-export const sidebarWLogonMenunBtn = () => {
+export const sidebarWLogonMenuNBtn = () => {
     return <SideBar>
         <Logo/>
         <Menu
@@ -56,5 +56,41 @@ export const sidebarWLogonMenunBtn = () => {
             selected={"Dashboard"}
         />
         <Upgrade/>
+    </SideBar>
+};
+
+export const sidebarWLogonMenuNBtnWSpecs = () => {
+    return <SideBar
+        align={"top"}
+    >
+        <Logo/>
+        <Menu
+            menuItems={menuItems}
+            selected={"Dashboard"}
+        />
+        <Upgrade/>
+    </SideBar>
+};
+export const collapsedSidebarWLogoNMenuNBtnWSpecs = () => {
+    return <SideBar
+        collapsed={true}
+        align={"top"}
+    >
+        <Logo/>
+        <Menu
+            menuItems={menuItems}
+            selected={"Dashboard"}
+        />
+        <Upgrade/>
+    </SideBar>
+};
+
+export const rightSidebar = () => {
+    return <SideBar
+        align={"top"}
+        color={"dark2"}
+        right={true}
+    >
+        <p>Vendor List</p>
     </SideBar>
 };

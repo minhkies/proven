@@ -5,9 +5,9 @@ import "../../font.scss";
 export default function MenuItem({menuIcon, menuTxt, collapsed, active, onClick, setSelect}) {
     const Icon = FeatherIcon[menuIcon];
     return(
-        <div className={"menu-item " + (active&&"active")} onClick={()=>{setSelect(menuTxt)}}>
+        <div className={"menu-item" + " " + (active&&"active") + " " + (collapsed&&"collapsed-menu-item")} onClick={()=>{setSelect(menuTxt)}}>
             <Icon/>
-            <p>{menuTxt}</p>
+            {!collapsed&&<p>{menuTxt}</p>}
         </div>
     )
 }
