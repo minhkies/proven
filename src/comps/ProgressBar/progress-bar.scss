@@ -1,0 +1,30 @@
+@import "ProgressStep/progress-step";
+.progress-bar-container{
+  width: 100px;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bai Jamjuree', sans-serif;
+  .progress-bar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 4px 20px;
+  }
+  .btn-back-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .img-back-btn{
+      height: 15px;
+      width: auto;
+      margin-right: 5px;
+    }
+  }
+
+}
