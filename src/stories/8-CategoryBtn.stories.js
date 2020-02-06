@@ -12,24 +12,14 @@ export const defaultCategoryBtn = () => {
     />
 };
 
-export const selectedCategoryBtn = () => {
+export const activeCategoryBtn = () => {
     return <CategoryBtn
-    menuIcon="FiCheck"
-    name="Default Category"
-    background="#729CA2"
-    iconColor="white"
-    fontColor="white"
+    selected="activebtn"
     />
 };
 
-export const listCategoryBtn = () => {
+export const listBtn = () => {
     return <CategoryBtn
-    menuIcon="FiX"
-    name="This is going to be a long line of list"
-    background="#729CA2"
-    iconColor="white"
-    fontColor="white"
-    list="true"
-    width="50%"
+    selected="listbtn"
     />
 };
