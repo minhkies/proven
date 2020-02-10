@@ -1,0 +1,26 @@
+.input-field{
+    padding: 10px;
+    border: 1px solid #729CA2;
+    border-radius: 5px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    color: black;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 16px;
+ 
+    &:focus{
+        border: 1px solid #FF6660;
+    }
+}
+
+.input-title{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 16px;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+}
