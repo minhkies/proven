@@ -32,12 +32,6 @@ export default function ProgressBar({progressStep, completedStep, currentStep}) 
                     />
                 })}
             </div>
-            <div className={"btn-back-container"} onClick={()=>{
-                setCStep(cStep-1);
-            }}>
-                <img src={require("../../media/img/back-btn.png")} alt={"Back Btn"} className={"img-back-btn"}/>
-                <p>Back</p>
-            </div>
         </div>
     )
 }

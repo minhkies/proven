@@ -7,6 +7,7 @@
   background-color: #465461;
   font-family: 'Bai Jamjuree', sans-serif;
   height: 50px;
+  text-decoration: none;
   & > * {
     color: white;
   };
@@ -27,8 +28,8 @@
   width: 7vw;
   svg{
     justify-self: center;
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
     stroke-width: 1.5px;
   }
 }
