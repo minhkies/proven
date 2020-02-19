@@ -9,5 +9,10 @@
   width: 100vw;
   overflow: hidden;
   margin: 0;
-  padding: 0
+  padding: 0;
+
+  & .main-content{
+    width: 100%;
+    max-width: calc(93vw - 30px);
+  }
 }

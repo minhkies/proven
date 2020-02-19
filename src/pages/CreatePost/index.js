@@ -5,6 +5,7 @@ import AddVendors from "./AddVendors";
 import AddProjectDetails from "./AddProjectDetails";
 import AddPhases from "./AddPhases";
 import Preview from "./Preview/index.";
+import SideBar from "../../comps/SideBar";
 
 export default function CreatePost({setCollapse}) {
     setCollapse(true);
@@ -50,6 +51,15 @@ export default function CreatePost({setCollapse}) {
                             />
                         ))}
                     </Switch>
+                </div>
+                <div className={"right-side-bar-container"}>
+                    <SideBar
+                        align={"top"}
+                        color={"dark2"}
+                        right={true}
+                    >
+                        <p>Vendor List</p>
+                    </SideBar>
                 </div>
             </div>
         </Router>

@@ -2,7 +2,7 @@ import React from "react";
 import "../font.scss"
 export default function InputField({title,placeholder,width}) {
     return(
-        <div>
+        <div className={"input-field-container"}>
             <p className={"input-title"}>{title}</p>
             <input style={{width:width}} className={"input-field"} placeholder={placeholder}/>
         </div>
@@ -12,5 +12,5 @@ export default function InputField({title,placeholder,width}) {
 InputField.defaultProps = {
     title:"",
     placeholder:"",
-    width:"0%"
+    width:"100%"
 };
