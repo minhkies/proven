@@ -13,11 +13,48 @@ export default function AddVendors() {
         <FormContainer
             formHeading={"Vendor Details"}
         >
-            <InputField
-                title="Input Heading"
-                placeholder="Input Placeholder"
-                width="100%"
-            />
+            <div className={"input-container"}>
+                <InputField
+                    title="Company Name"
+                    placeholder="Ex: FirstOnSite"
+                    width="100%"
+                />
+                <div className={"horizontal-input"}>
+                    <InputField
+                        title="Company Name"
+                        placeholder="Ex: FirstOnSite"
+                        width="100%"
+                    />
+                    <InputField
+                        title="Company Name"
+                        placeholder="Ex: FirstOnSite"
+                        width="100%"
+                    />
+                </div>
+                <div className={"horizontal-input"}>
+                    <InputField
+                        title="Company Name"
+                        placeholder="Ex: FirstOnSite"
+                        width="100%"
+                    />
+                    <InputField
+                        title="Company Name"
+                        placeholder="Ex: FirstOnSite"
+                        width="100%"
+                    />
+                </div>
+                <InputField
+                    title="Company Name"
+                    placeholder="Ex: FirstOnSite"
+                    width="100%"
+                />
+                <InputField
+                    title="Company Name"
+                    placeholder="Ex: FirstOnSite"
+                    width="100%"
+                />
+            </div>
+
         </FormContainer>
     </div>
 }

@@ -4,7 +4,7 @@
 @import "./Preview/preview";
 
 .create-container{
-  padding: 30px;
+  padding: 50px;
   display: flex;
   flex: 1;
   width: 100%;
@@ -13,10 +13,10 @@
 
 .step-content{
   justify-content: start;
-  margin: 0 30px;
+  margin: 0 50px;
   width: 100%;
 }
 
 .right-side-bar-container{
-  margin: -30px -30px 0 0;
+  margin: -50px 50px 0 0;
 }
