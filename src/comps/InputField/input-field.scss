@@ -1,7 +1,7 @@
 .input-field-container{
     .input-field{
         padding: 10px;
-        border: 1px solid #729CA2;
+        border: 1px solid #DBDDE0;
         border-radius: 5px;
         background: #FFFFFF;
         font-size: 12px;
@@ -12,8 +12,16 @@
         box-sizing : border-box;
 
         &:focus{
-            border: 1px solid #FF6660;
+            border: 1px solid #729CA2;
         }
+
+    }
+    .input-field-required{
+        border: 1px solid #FF6660;
+    }
+
+    .input-field-asterix{
+        color:red;
     }
 
     .input-title{
