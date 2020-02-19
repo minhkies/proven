@@ -16,7 +16,7 @@ export default function AddVendors() {
             <InputField
                 title="Input Heading"
                 placeholder="Input Placeholder"
-                width="50%"
+                width="100%"
             />
         </FormContainer>
     </div>
