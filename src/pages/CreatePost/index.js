@@ -6,6 +6,7 @@ import AddProjectDetails from "./AddProjectDetails";
 import AddPhases from "./AddPhases";
 import Preview from "./Preview/index.";
 import SideBar from "../../comps/SideBar";
+import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
     setCollapse(true);
