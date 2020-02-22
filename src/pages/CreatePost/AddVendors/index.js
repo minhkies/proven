@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../../../comps/Header";
 import FormContainer from "../../../comps/FormContainer";
+import InputField from "../../../comps/InputField";
+import SideBar from "../../../comps/SideBar";
 
 export default function AddVendors() {
     return <div className={"add-vendors-container"}>
@@ -11,7 +13,11 @@ export default function AddVendors() {
         <FormContainer
             formHeading={"Vendor Details"}
         >
-
+            <InputField
+                title="Input Heading"
+                placeholder="Input Placeholder"
+                width="100%"
+            />
         </FormContainer>
     </div>
 }
