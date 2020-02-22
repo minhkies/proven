@@ -8,6 +8,7 @@ import Preview from "./Preview/index.";
 import SideBar from "../../comps/SideBar";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
+import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
     setCollapse(true);

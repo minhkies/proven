@@ -1,4 +1,6 @@
 .input-field-container{
+    display: flex;
+    flex-direction: column;
 
     .input-field{
         padding: 10px;
@@ -32,6 +34,17 @@
         font-size: 12px;
         color: #333333;
         font-family: 'Open Sans', sans-serif;
+    }
+
+    .input-icon-cont{
+        padding-left: -30px;
+        flex-direction: row;
+    }
+    .icon-style{
+        background: #729CA2;
+        border-radius: 50%;
+        margin: -35px;
+        margin-bottom: -7px;
     }
 }
 
