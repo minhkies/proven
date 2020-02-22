@@ -1,4 +1,9 @@
-.categorybtn-container-noselect{
+.category-btn-container{
+    padding: 0 10px 0 15px;
+    margin-right: 1vw;
+}
+
+.category-btn-container-no-select{
     border-radius: 20px;
     height: 35px;
     border: none;
@@ -18,7 +23,7 @@
     }
 }
 
-.categorybtn-container-select{
+.category-btn-container-select{
     border-radius: 20px;
     height: 35px;
     border: none;
@@ -37,14 +42,14 @@
 
     }
 }
-.whiteplus{
+.white-plus{
     color:white;
 }
 
-.grayplus{
+.gray-plus{
     color:#979797;
 }
-.listbtn-container{
+.list-btn-container{
     border-radius: 20px;
     height: 35px;
     border: none;
@@ -66,4 +71,8 @@
     padding: 20px;
     }
 
+}
+
+.category-icon{
+    margin-left: 5px;
 }
