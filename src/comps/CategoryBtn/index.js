@@ -1,7 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import * as FeatherIcon from "react-icons/fi";
 import "../font.scss"
-export default function CategoryBtn({name,selected,menuIcon}) {
+export default function CategoryBtn({name,selected,menuIcon,onClick}) {
+    const [state,setState] = useState(false);
+        if (!state){
+            selected="inactiveBtn"
+            setState(true);
+        }
+        else {
+            selected="activeBtn"
+            setState(false);
+        }
+    
     let Icon = FeatherIcon[menuIcon];
     let btnStyle = null;
     let iconStyle = null;
@@ -21,8 +31,9 @@ export default function CategoryBtn({name,selected,menuIcon}) {
         iconStyle="white-plus";
         Icon=FeatherIcon["FiX"];
     }
+  
      return(
-            <div className={"category-btn-container" + " " + btnStyle}>
+            <div className={"category-btn-container" + " " + btnStyle} onClick={()=>setState(!state)}>
                 <p>{name}</p>
                 <Icon className ={"category-icon" + " " + iconStyle} size={22}/>
             </div>
@@ -31,5 +42,6 @@ export default function CategoryBtn({name,selected,menuIcon}) {
 
 CategoryBtn.defaultProps = {
     name:"Default Category",
-    selected:"inactiveBtn"
+    selected:"inactiveBtn",
+    onClick: ()=>{}
 };

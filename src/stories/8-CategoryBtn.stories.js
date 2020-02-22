@@ -14,12 +14,12 @@ export const defaultCategoryBtn = () => {
 
 export const activeCategoryBtn = () => {
     return <CategoryBtn
-    selected="activebtn"
+    selected="activeBtn"
     />
 };
 
 export const listBtn = () => {
     return <CategoryBtn
-    selected="listbtn"
+    selected="listBtn"
     />
 };
