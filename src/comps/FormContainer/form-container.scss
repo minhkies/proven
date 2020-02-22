@@ -1,6 +1,6 @@
 .form-container{
   font-family: Bai Jamjuree, sans-serif;
-  margin: 50px 0;
+  margin: 25px 0;
   padding: 50px;
   background: #FFFFFF;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.05);
@@ -10,6 +10,10 @@
     font-weight: 600;
     font-size: 16px;
     color: #729CA2;
+  }
+
+  & .form-heading-margin{
+    margin-top: 0;
   }
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function FormContainer({col, formHeading, children}){
+export default function FormContainer({col, formHeading, marginTop, children}){
     return(
         <div className={"form-container" + " " + "form-col-" + col}>
-            <p className={"form-heading"}>{formHeading}</p>
+            <p className={"form-heading" + " " + (marginTop&&"form-heading-margin")}>{formHeading}</p>
             <div className={"child-container"}>
                 {children}
             </div>
@@ -14,5 +14,6 @@ export default function FormContainer({col, formHeading, children}){
 FormContainer.defaultProps = {
     col: 2,
     formHeading: "Form heading",
-    children: null
+    children: null,
+    marginTop: true
 };
