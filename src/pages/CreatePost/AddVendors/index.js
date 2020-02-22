@@ -122,6 +122,10 @@ export default function AddVendors() {
                     name={"jhfgjf"}
                 />
             </div>
+
+            <p className={"other-header"}>
+                If "Other", please specify type of service(s) offered or provided:
+            </p>
         </FormContainer>
     </div>
 }
