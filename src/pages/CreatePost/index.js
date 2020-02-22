@@ -6,6 +6,8 @@ import AddProjectDetails from "./AddProjectDetails";
 import AddPhases from "./AddPhases";
 import Preview from "./Preview/index.";
 import SideBar from "../../comps/SideBar";
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
@@ -42,7 +44,7 @@ export default function CreatePost({setCollapse}) {
                         currentStep={1}
                     />
                 </div>
-                <div className={"step-content"}>
+                <SimpleBar className={"step-content"}>
                     <Switch>
                         {progressStep.map((r,i)=>(
                             <Route
@@ -52,7 +54,7 @@ export default function CreatePost({setCollapse}) {
                             />
                         ))}
                     </Switch>
-                </div>
+                </SimpleBar>
                 <div className={"right-side-bar-container"}>
                     <SideBar
                         align={"top"}

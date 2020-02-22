@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import "../font.scss";
 import * as FeatherIcon from "react-icons/fi";
 const allowedChars = "1234567890()- ";
-export default function InputField({title,placeholder,width,required,asterix,number,addbutton}) {
+export default function InputField({title,placeholder,width,required,star,number,addbutton}) {
     let Icon=FeatherIcon["FiPlus"];
     const [phone, setPhone] = useState("");
    var formatedNumber = (event) =>{
@@ -24,7 +24,7 @@ export default function InputField({title,placeholder,width,required,asterix,num
     
     return(
         <div className={"input-field-container"}>
-            <p className={"input-title"}>{title} {asterix?<span className={(asterix&&"input-field-asterix")}>*</span>:""}</p>
+            <p className={"input-title"}>{title} {asterix?<span className={(asterix&&"input-field-star")}>*</span>:""}</p>
             <div className = {"input-icon-cont"}>
             <input
             maxLength={number?14:255}
@@ -46,7 +46,7 @@ InputField.defaultProps = {
     placeholder:"",
     width:"100%",
     required:false,
-    asterix:false,
+    star:false,
     number:true,
     addbutton:false
 };

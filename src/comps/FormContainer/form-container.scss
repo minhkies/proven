@@ -1,15 +1,19 @@
 .form-container{
   font-family: Bai Jamjuree, sans-serif;
-  margin: 30px 0;
-  padding: 30px;
+  margin: 25px 0;
+  padding: 50px;
   background: #FFFFFF;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
-  width: calc(100% - 70px);
+  width: calc(100% - 110px);
   & .form-heading{
     font-weight: 600;
     font-size: 16px;
     color: #729CA2;
+  }
+
+  & .form-heading-margin{
+    margin-top: 0;
   }
 }
 
@@ -21,5 +25,5 @@
 .form-col-2{
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-gap: 30px;
+  grid-gap: 50px;
 }
