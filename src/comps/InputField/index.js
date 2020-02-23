@@ -10,7 +10,6 @@ export default function InputField({title,placeholder,width,required,star,number
         let val = event.target.value;
        if (number){
         let char = val[val.length-1];
-        console.log(char);
         if (val.length===10){
             val = val.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
         }
@@ -21,7 +20,6 @@ export default function InputField({title,placeholder,width,required,star,number
         else {
             setInp(val);
         }
-        value=inp;
     };
 
     return(
@@ -32,6 +30,10 @@ export default function InputField({title,placeholder,width,required,star,number
                 maxLength={number?14:255}
                 pattern={number&&"[0-9 ]+"}
                 onChange={formattedNumber}
+                onBlur={(val)=>{
+                    value=inp;
+                    console.log(value)
+                }}
                 value={inp}
                 type="text"
                 style={{width}}

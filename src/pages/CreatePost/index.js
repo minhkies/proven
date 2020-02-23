@@ -13,6 +13,7 @@ import VendorCard from "../../comps/VendorCard";
 export default function CreatePost({setCollapse}) {
     let [vendors, setVendors] = useState([]);
     setCollapse(true);
+    console.log("hihihi", vendors);
     let progressStep = [
         {
             stepTxt: "Vendors",
@@ -65,15 +66,18 @@ export default function CreatePost({setCollapse}) {
                         color={"dark2"}
                         right={true}
                     >
-                        <p>Vendor List</p>
-                        {/*{vendors.map((o,i)=>{*/}
-                        {/*    return(*/}
-                        {/*        <VendorCard*/}
-                        {/*            // title={o.name}*/}
-                        {/*        />*/}
-                        {/*    )*/}
-                        {/*})}*/}
-                        <VendorCard/>
+                        <p className={"right-bar-title"}>Vendor List</p>
+                        <div className={"vendor-container"}>
+                            {vendors.map((o,i)=>{
+                                return(
+                                    <VendorCard
+                                        title={o.name}
+                                        category={o.category}
+                                    />
+                                )
+                            })}
+                        </div>
+
                     </SideBar>
                 </div>
             </div>

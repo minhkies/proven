@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../../../comps/Header";
 import FormContainer from "../../../comps/FormContainer";
 import InputField from "../../../comps/InputField";
@@ -10,7 +10,7 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 
 export default function AddVendors({value, setValue}) {
     let currentInp = {
-        name: null,
+        name: "",
         contactName: null,
         contactPos: null,
         tel: null,
@@ -75,6 +75,9 @@ export default function AddVendors({value, setValue}) {
         name: "Window Replacement/ Repair"
         },
     ];
+
+    console.log(currentInp);
+
 
     return <div className={"add-vendors-container"}>
         <Header

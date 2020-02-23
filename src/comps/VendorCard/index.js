@@ -1,15 +1,24 @@
 import React from "react";
 import {FiX} from "react-icons/fi";
+
+
 export default function VendorCard({title,category}) {
     return(
         <div className={"vendor-cont"}>
-            <FiX className={"icon-style"} size={22}/>
-          <p className={"company-name"}>{title}</p>
+            <FiX className={"icon-style"} size={16}/>
+            <p className={"company-name"}>{title}</p>
+            <div className={"card-category-container"}>
+                {category.map((o,i)=>{
+                    return(
+                        <p>{o}</p>
+                    )
+                })}
+            </div>
         </div>
         )
 }
 
 VendorCard.defaultProps = {
     title: "Company Name",
-    category:"Waste Disposal/Recycling"
+    category:["Category 1", ["Category 2"]]
 };

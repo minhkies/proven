@@ -1,22 +1,32 @@
-.vendor-cont{
+.vendor-cont {
     background: #404D59;
-border-radius: 5px;
-display: flex;
-flex-direction: column;
-width: auto;
-padding: 10px;
-.company-name{
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
+    border-radius: 5px;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: calc(100% - 20px);
+    padding: 10px 10px 20px 20px;
+    & .company-name{
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        margin-top: 0
+    };
 
-}
-.icon-style{
-    color: white;
-    position: absolute;
-    right: 20px;
-    width:auto;
-}
+    & .icon-style{
+        justify-self: end;
+        align-self: end;
+    };
+
+    & .card-category-container{
+        display: flex;
+        flex-wrap: wrap;
+        & > p{
+            font-family: "Open Sans", sans-serif;
+            background: #729CA2;
+            border-radius: 20px;
+            padding: 10px 15px;
+            margin: 0 10px 0 0;
+        }
+    }
 }
