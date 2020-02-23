@@ -6,12 +6,27 @@ import SideBar from "../../../comps/SideBar";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import CategoryBtn from "../../../comps/CategoryBtn";
+import BottomBtnBar from "../../../comps/BottomBtnBar";
 
-export default function AddVendors() {
-
+export default function AddVendors({value, setValue}) {
+    let currentInp = {
+        name: null,
+        contactName: null,
+        contactPos: null,
+        tel: null,
+        cell: null,
+        email: null,
+        website: null,
+        address1: null,
+        address2: null,
+        city: null,
+        province: null,
+        zip: null,
+        category: []
+    };
     let categoryList = [
         {
-        name: "Abatement (Asbetos, Lead, Silica)"
+        name: "Abatement (Asbetos, Lead, Silica)",
         },{
         name: "Asphalt"
         },{
@@ -77,6 +92,7 @@ export default function AddVendors() {
                     width="100%"
                     star={true}
                     marginTop={false}
+                    value={currentInp.name}
                 />
                 <div className={"horizontal-input"}>
                     <InputField
@@ -84,11 +100,13 @@ export default function AddVendors() {
                         placeholder="Ex: John Smith"
                         width="100%"
                         star={true}
+                        value={currentInp.contactName}
                     />
                     <InputField
                         title="Position of Contact Person"
                         placeholder="Ex: Manager Assistant"
                         width="100%"
+                        value={currentInp.contactPos}
                     />
                 </div>
                 <div className={"horizontal-input"}>
@@ -97,11 +115,15 @@ export default function AddVendors() {
                         placeholder="(___) ___ - ____"
                         width="100%"
                         star={true}
+                        number={true}
+                        value={currentInp.tel}
                     />
                     <InputField
                         title="Cellphone Number"
                         placeholder="(___) ___ - ___"
                         width="100%"
+                        number={true}
+                        value={currentInp.cell}
                     />
                 </div>
                 <InputField
@@ -109,11 +131,13 @@ export default function AddVendors() {
                     placeholder="Ex: hleung@company.com"
                     width="100%"
                     star={true}
+                    value={currentInp.email}
                 />
                 <InputField
                     title="Website (Optional)"
                     placeholder="Ex: company.com"
                     width="100%"
+                    value={currentInp.website}
                 />
             </div>
         </FormContainer>
@@ -127,11 +151,13 @@ export default function AddVendors() {
                     width="100%"
                     star={true}
                     marginTop={false}
+                    value={currentInp.address1}
                 />
                 <InputField
                     title="Address Line 2"
                     placeholder="Ex: Building SE14 Room 112"
                     width="100%"
+                    value={currentInp.address2}
                 />
                 <div className={"horizontal-input-3"}>
                     <InputField
@@ -139,18 +165,21 @@ export default function AddVendors() {
                         placeholder="Ex: Burnaby"
                         width="100%"
                         star={true}
+                        value={currentInp.city}
                     />
                     <InputField
                         title="Province"
                         placeholder="Ex: BC"
                         width="100%"
                         star={true}
+                        value={currentInp.province}
                     />
                     <InputField
                         title="Postal Code"
                         placeholder="Ex: V5G 3H2"
                         width="100%"
                         star={true}
+                        value={currentInp.zip}
                     />
                 </div>
             </div>
@@ -167,6 +196,7 @@ export default function AddVendors() {
                         <CategoryBtn
                             key={i}
                             name={o.name}
+                            onclick={currentInp.category}
                         />
                         )
 
@@ -176,6 +206,15 @@ export default function AddVendors() {
             <p className={"other-header"}>
                 If "Other", please specify type of service(s) offered or provided:
             </p>
+            <InputField
+                addButton={true}
+            />
         </FormContainer>
+        <BottomBtnBar
+            leftBtnTxt = {"Add New Vendor"}
+            leftBtnOnClick={()=>{setValue(value.concat(currentInp))}}
+            rightBtn1Txt = {"Cancel"}
+            rightBtn2Txt = {"Next Step"}
+        />
     </div>
 }

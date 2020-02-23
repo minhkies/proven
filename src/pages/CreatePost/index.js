@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import ProgressBar from "../../comps/ProgressBar";
 import AddVendors from "./AddVendors";
@@ -11,12 +11,16 @@ import 'simplebar/dist/simplebar.min.css';
 import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
+    let [vendors, setVendors] = useState([]);
     setCollapse(true);
     let progressStep = [
         {
             stepTxt: "Vendors",
             path: "/CreatePost/AddVendors",
-            comps: AddVendors
+            comps: <AddVendors
+                value={vendors}
+                setValue={setVendors}
+            />
         },
         {
             stepTxt: "Project",
@@ -62,9 +66,17 @@ export default function CreatePost({setCollapse}) {
                         right={true}
                     >
                         <p>Vendor List</p>
+                        {/*{vendors.map((o,i)=>{*/}
+                        {/*    return(*/}
+                        {/*        <VendorCard*/}
+                        {/*            // title={o.name}*/}
+                        {/*        />*/}
+                        {/*    )*/}
+                        {/*})}*/}
+                        <VendorCard/>
                     </SideBar>
                 </div>
             </div>
         </Router>
-    )
+    );
 }
