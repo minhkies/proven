@@ -27,7 +27,7 @@ export default function CategoryBtn({name, type, selected, menuIcon, onclick}) {
     }
      return(
             <div className={"category-btn-container" + " " + btnStyle + " " + (removed&&"removed-category")} onClick={()=>{
-                !select?onclick.push(name):onclick.splice(onclick.indexOf(name, 1));
+                !select?onclick.push(name):onclick.splice(onclick.indexOf(name), 1);
                 !selected?setSelect(!select):(setRemoved(true));
             }}>
                 <p>{name}</p>

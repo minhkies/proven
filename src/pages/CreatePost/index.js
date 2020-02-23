@@ -12,8 +12,10 @@ import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
     let [vendors, setVendors] = useState([]);
+    let [completedStep, setCompletedStep] = useState([]);
+    let [currentStep, setCurrentStep] = useState(1);
+    let [refresh, setRefresh] = useState(true);
     setCollapse(true);
-    console.log("hihihi", vendors);
     let progressStep = [
         {
             stepTxt: "Vendors",
@@ -21,12 +23,17 @@ export default function CreatePost({setCollapse}) {
             comps: <AddVendors
                 value={vendors}
                 setValue={setVendors}
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
             />
         },
         {
             stepTxt: "Project",
             path: "/CreatePost/AddProjectDetails",
-            comps: AddProjectDetails
+            comps: <AddProjectDetails/>
         },
         {
             stepTxt: "Phases",
@@ -44,9 +51,10 @@ export default function CreatePost({setCollapse}) {
             <div className={"create-container"}>
                 <div className={"progress-container"}>
                     <ProgressBar
+                        key={refresh}
                         progressStep={progressStep}
-                        completedStep={[]}
-                        currentStep={1}
+                        completedStep={completedStep}
+                        currentStep={currentStep}
                     />
                 </div>
                 <SimpleBar className={"step-content"}>
@@ -73,11 +81,13 @@ export default function CreatePost({setCollapse}) {
                                     <VendorCard
                                         title={o.name}
                                         category={o.category}
+                                        vendors={vendors}
+                                        setVendors={setVendors}
                                     />
                                 )
                             })}
+                            {console.log(vendors)}
                         </div>
-
                     </SideBar>
                 </div>
             </div>

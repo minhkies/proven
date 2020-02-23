@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import Header from "../../../comps/Header";
 import FormContainer from "../../../comps/FormContainer";
 import InputField from "../../../comps/InputField";
-import SideBar from "../../../comps/SideBar";
-import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import CategoryBtn from "../../../comps/CategoryBtn";
 import BottomBtnBar from "../../../comps/BottomBtnBar";
+import {Link} from "react-router-dom";
 
-export default function AddVendors({value, setValue}) {
+
+export default function AddVendors({value, setValue, setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
+    let [refresh, setRefresh] = useState(true);
+
     let currentInp = {
-        name: "",
+        name: null,
         contactName: null,
         contactPos: null,
         tel: null,
@@ -76,10 +78,7 @@ export default function AddVendors({value, setValue}) {
         },
     ];
 
-    console.log(currentInp);
-
-
-    return <div className={"add-vendors-container"}>
+    return <div className={"add-vendors-container"} key={refresh}>
         <Header
             headingTxt={"Add Company Vendors"}
             subTxt={"Complete vendor details below. Click 'Add New Vendor' to add to vendor list."}
@@ -95,10 +94,7 @@ export default function AddVendors({value, setValue}) {
                     width="100%"
                     star={true}
                     marginTop={false}
-                    value={currentInp.name}
-                    onChange={e=>{
-                        console.log("pass on change over",e.target.value);
-                    }}
+                    onChange={(e)=>{currentInp.name=e.target.value}}
                 />
                 <div className={"horizontal-input"}>
                     <InputField
@@ -106,13 +102,13 @@ export default function AddVendors({value, setValue}) {
                         placeholder="Ex: John Smith"
                         width="100%"
                         star={true}
-                        value={currentInp.contactName}
+                        onChange={(e)=>{currentInp.contactName=e.target.value}}
                     />
                     <InputField
                         title="Position of Contact Person"
                         placeholder="Ex: Manager Assistant"
                         width="100%"
-                        value={currentInp.contactPos}
+                        onChange={(e)=>{currentInp.contactPos=e.target.value}}
                     />
                 </div>
                 <div className={"horizontal-input"}>
@@ -122,14 +118,14 @@ export default function AddVendors({value, setValue}) {
                         width="100%"
                         star={true}
                         number={true}
-                        value={currentInp.tel}
+                        onChange={(e)=>{currentInp.tel=e.target.value}}
                     />
                     <InputField
                         title="Cellphone Number"
                         placeholder="(___) ___ - ___"
                         width="100%"
                         number={true}
-                        value={currentInp.cell}
+                        onChange={(e)=>{currentInp.cell=e.target.value}}
                     />
                 </div>
                 <InputField
@@ -137,13 +133,13 @@ export default function AddVendors({value, setValue}) {
                     placeholder="Ex: hleung@company.com"
                     width="100%"
                     star={true}
-                    value={currentInp.email}
+                    onChange={(e)=>{currentInp.email=e.target.value}}
                 />
                 <InputField
                     title="Website (Optional)"
                     placeholder="Ex: company.com"
                     width="100%"
-                    value={currentInp.website}
+                    onChange={(e)=>{currentInp.website=e.target.value}}
                 />
             </div>
         </FormContainer>
@@ -157,13 +153,13 @@ export default function AddVendors({value, setValue}) {
                     width="100%"
                     star={true}
                     marginTop={false}
-                    value={currentInp.address1}
+                    onChange={(e)=>{currentInp.address1=e.target.value}}
                 />
                 <InputField
                     title="Address Line 2"
                     placeholder="Ex: Building SE14 Room 112"
                     width="100%"
-                    value={currentInp.address2}
+                    onChange={(e)=>{currentInp.name=e.target.value}}
                 />
                 <div className={"horizontal-input-3"}>
                     <InputField
@@ -171,21 +167,21 @@ export default function AddVendors({value, setValue}) {
                         placeholder="Ex: Burnaby"
                         width="100%"
                         star={true}
-                        value={currentInp.city}
+                        onChange={(e)=>{currentInp.address2=e.target.value}}
                     />
                     <InputField
                         title="Province"
                         placeholder="Ex: BC"
                         width="100%"
                         star={true}
-                        value={currentInp.province}
+                        onChange={(e)=>{currentInp.province=e.target.value}}
                     />
                     <InputField
                         title="Postal Code"
                         placeholder="Ex: V5G 3H2"
                         width="100%"
                         star={true}
-                        value={currentInp.zip}
+                        onChange={(e)=>{currentInp.zip=e.target.value}}
                     />
                 </div>
             </div>
@@ -200,7 +196,6 @@ export default function AddVendors({value, setValue}) {
                 {categoryList.map((o,i)=>{
                     return(
                         <CategoryBtn
-                            key={i}
                             name={o.name}
                             onclick={currentInp.category}
                         />
@@ -218,9 +213,18 @@ export default function AddVendors({value, setValue}) {
         </FormContainer>
         <BottomBtnBar
             leftBtnTxt = {"Add New Vendor"}
-            leftBtnOnClick={()=>{setValue(value.concat(currentInp))}}
+            leftBtnOnClick={()=>{
+                setValue(value.concat(currentInp));
+                setRefresh(!refresh)
+            }}
             rightBtn1Txt = {"Cancel"}
             rightBtn2Txt = {"Next Step"}
+            rightBtn2OnClick={()=>{
+                setNextStep(2);
+                setCompletedStep(completedStep.concat(1));
+                setStepRefresh(!stepRefresh);
+            }}
+            nextStep={"./AddProjectDetails"}
         />
     </div>
 }

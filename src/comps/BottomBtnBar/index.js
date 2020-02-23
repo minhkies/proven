@@ -1,6 +1,7 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-export default function BottomBtnBar({leftBtnTxt, leftBtnOnClick, rightBtn1Txt, rightBtn1OnClick, rightBtn2Txt, rightBtn2OnClick}) {
+export default function BottomBtnBar({leftBtnTxt, leftBtnOnClick, rightBtn1Txt, rightBtn1OnClick, rightBtn2Txt, rightBtn2OnClick,nextStep}) {
     return(
         <div className={"bottom-bar-container"}>
             <div className={"left-btn-container"}>
@@ -12,9 +13,9 @@ export default function BottomBtnBar({leftBtnTxt, leftBtnOnClick, rightBtn1Txt, 
                 <div className={"right-btn-1"} onClick={rightBtn1OnClick}>
                     <p>{rightBtn1Txt}</p>
                 </div>
-                <div className={"right-btn-2"} onClick={rightBtn2OnClick}>
+                <Link to={nextStep} className={"right-btn-2"} onClick={rightBtn2OnClick}>
                     <p>{rightBtn2Txt}</p>
-                </div>
+                </Link>
             </div>
         </div>
     )
