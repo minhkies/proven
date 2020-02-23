@@ -96,6 +96,9 @@ export default function AddVendors({value, setValue}) {
                     star={true}
                     marginTop={false}
                     value={currentInp.name}
+                    onChange={e=>{
+                        console.log("pass on change over",e.target.value);
+                    }}
                 />
                 <div className={"horizontal-input"}>
                     <InputField

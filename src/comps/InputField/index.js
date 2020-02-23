@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import "../font.scss";
 import * as FeatherIcon from "react-icons/fi";
 const allowedChars = "1234567890()- ";
-export default function InputField({title,placeholder,width,required,star,number,addButton, marginTop, value}) {
+export default function InputField({onChange,title,placeholder,width,required,star,number,addButton, marginTop, value}) {
     let Icon=FeatherIcon["FiPlus"];
     const [inp, setInp] = useState("");
 
@@ -29,7 +29,10 @@ export default function InputField({title,placeholder,width,required,star,number
             <input
                 maxLength={number?14:255}
                 pattern={number&&"[0-9 ]+"}
-                onChange={formattedNumber}
+                onChange={e=>{
+                    formattedNumber(e);
+                    onChange(e);
+                }}
                 onBlur={(val)=>{
                     value=inp;
                     console.log(value)
