@@ -4,7 +4,7 @@ import ProgressBar from "../../comps/ProgressBar";
 import AddVendors from "./AddVendors";
 import AddProjectDetails from "./AddProjectDetails";
 import AddPhases from "./AddPhases";
-import Preview from "./Preview/index.";
+import Preview from "./Preview";
 import SideBar from "../../comps/SideBar";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
@@ -85,7 +85,7 @@ export default function CreatePost({setCollapse}) {
                         ))}
                     </Switch>
                 </SimpleBar>
-                <div className={"right-side-bar-container"}>
+                <div className={"right-side-bar-container" + " " + (currentStep===4&&"remove-right-side-bar")}>
                     <SideBar
                         key={refresh}
                         align={"top"}
