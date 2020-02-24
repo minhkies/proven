@@ -9,7 +9,7 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 
 export default function AddVendors({value, setValue, setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
     let [refresh, setRefresh] = useState(true);
-    const writeJsonFile = require('write-json-file');
+    // const writeJsonFile = require('write-json-file');
 
     let currentInp = {
         name: null,

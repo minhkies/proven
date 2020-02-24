@@ -8,6 +8,7 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 
 export default function AddPhases({value, setValue,setNextStep, completedStep, setCompletedStep, setStepRefresh, StepRefresh, phaseVendors, setPhaseVendors}) {
     let [refresh, setRefresh] = useState(true);
+
     let currentInp = {
         details: null,
         poNumber: null,
@@ -83,7 +84,9 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
                         placeholder="Ex. PO"
                         width="100%"
                         star={true}
-                        onChange={(e)=>{currentInp.details=e.target.value}}
+                        onChange={(e)=>{currentInp.details=e.target.value
+                            console.log(currentInp.details);
+                        }}
                         />
                      <InputField
                         title="PO Number"
@@ -176,8 +179,9 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
                 setCompletedStep(completedStep.concat(3));
                 setStepRefresh(!setRefresh);
                 let currentData = JSON.parse(sessionStorage.getItem("currentData"));
-                currentData.phases=value;
+                currentData.phases=currentInp;
                 sessionStorage.setItem("currentData", JSON.stringify(currentData));
+                console.log(sessionStorage.getItem("currentData"));
             }}
             nextStep={"./Preview"}
         />
