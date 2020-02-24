@@ -18,7 +18,7 @@ let FirstTime = () => {
     return(
             <div className={"dimmer"}>
                 <div className={"pop-up-container"}>
-                    <p className={"title"}>Welcome to proven, Let's get started</p>
+                    <p className={"title"}>Welcome to proven, Henry <br/> proven is designed to help you streamline your project bidding</p>
                     <p className={"btn-close-pop-up"}>x</p>
                     <div>Hi</div>
                     <div>Hi</div>

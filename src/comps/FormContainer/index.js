@@ -8,6 +8,7 @@ export default function FormContainer({col, formHeading, formSub, star, marginTo
                 {(formSub!==""&&col===1)&&<p className={"form-sub"}>{formSub}{star&&<span className={"form-star"}>*</span>}</p>}
                 {children}
             </div>
+            {col===3&&<p className={"edit-btn"}>Edit</p>}
         </div>
     )
 }
