@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import "../font.scss";
 import * as FeatherIcon from "react-icons/fi";
 const allowedChars = "1234567890()$,- ";
-export default function InputField({onChange,title,placeholder,width,required,star,number,addButton, marginTop, paddingBottom, setValue}) {
+export default function InputField({onChange,title,placeholder,width,required,star,number,addButton, marginTop, paddingBottom, setValue, onClick, scope}) {
     let Icon=FeatherIcon["FiPlus"];
     const [inp, setInp] = useState("");
 
@@ -38,7 +38,9 @@ export default function InputField({onChange,title,placeholder,width,required,st
                 style={{width,paddingBottom}}
                 className={"input-field" + " " + (required&&"input-field-required")}
                 placeholder={placeholder}/>
-                {addButton&&<Icon size={22} color={"white"} className={"icon-style"}/>}
+                {addButton&&<Icon size={22} color={"white"} className={"icon-style"} onClick={(e)=>{
+                    onClick(scope.concat(inp))
+                }}/>}
             </div>
         </div>
         )
@@ -54,5 +56,7 @@ InputField.defaultProps = {
     number:false,
     addButton:false,
     marginTop: true,
-    onChange: ()=>{}
+    onChange: ()=>{},
+    onclick: ()=>{},
+    scope: []
 };

@@ -50,7 +50,6 @@ export default function CategoryBtn({name, type, selected, menuIcon, onclick, ph
                 } else {
                     if (phaseVendors!==null) {
                         let tempVendors = phaseVendors;
-                        console.log("hahaha", tempVendors);
                         for (let i=0; i < tempVendors.length; i++){
                             tempVendors[i].category.indexOf(name)!==-1&&tempVendors.splice(i, 1)
                         }
@@ -63,7 +62,7 @@ export default function CategoryBtn({name, type, selected, menuIcon, onclick, ph
 
             }}>
                 <p>{name}</p>
-                <Icon className ={"category-icon" + " " + iconStyle} size={22}/>
+                <Icon className ={"category-icon" + " " + iconStyle} size={18}/>
             </div>
             )
 }
