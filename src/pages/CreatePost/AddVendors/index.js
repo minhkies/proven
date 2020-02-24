@@ -9,6 +9,7 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 
 export default function AddVendors({value, setValue, setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
     let [refresh, setRefresh] = useState(true);
+    const writeJsonFile = require('write-json-file');
 
     let currentInp = {
         name: null,
@@ -214,14 +215,28 @@ export default function AddVendors({value, setValue, setNextStep, completedStep,
             leftBtnTxt = {"Add New Vendor"}
             leftBtnOnClick={()=>{
                 setValue(value.concat(currentInp));
-                setRefresh(!refresh)
+                setRefresh(!refresh);
             }}
             rightBtn1Txt = {"Cancel"}
             rightBtn2Txt = {"Next Step"}
-            rightBtn2OnClick={()=>{
+            rightBtn2OnClick={async () => {
+                // await writeJsonFile('../../../data/currentData.json', {vendors: value});
                 setNextStep(2);
                 setCompletedStep(completedStep.concat(1));
                 setStepRefresh(!stepRefresh);
+                sessionStorage.setItem('currentData', JSON.stringify({vendors: value}));
+                setValue([]);
+                // const handleSaveToPC = jsonData => {
+                //     const fileData = JSON.stringify(jsonData);
+                //     const blob = new Blob([fileData], {type: "text/plain"});
+                //     const url = URL.createObjectURL(blob);
+                //     const link = document.createElement('a');
+                //     // link.download = 'filename.json';
+                //     link.href = url;
+                //     link.click();
+                //     console.log(link.href);
+                // };
+                // handleSaveToPC({vendors: value})
             }}
             nextStep={"./AddProjectDetails"}
         />

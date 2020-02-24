@@ -8,7 +8,7 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 export default function AddProjectDetails({setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
     let currentInp = {
         name:null,
-        projectid:null,
+        projectId:null,
         description:null
     };
     return <div className={"add-project-details-container"}>
@@ -32,7 +32,7 @@ export default function AddProjectDetails({setNextStep, completedStep, setComple
                         placeholder="Ex. BY19 - LH204"
                         width="100%"
                         star="true"
-                        onChange={(e)=>{currentInp.projectid=e.target.value}}
+                        onChange={(e)=>{currentInp.projectId=e.target.value}}
                     />
                     </div>
                         <InputField
@@ -48,13 +48,16 @@ export default function AddProjectDetails({setNextStep, completedStep, setComple
         <BottomBtnBar
             rightBtn1Txt = {"Cancel"}
             rightBtn2Txt = {"Next Step"}
-            // rightBtn2OnClick={()=>{
-            //     setNextStep(3);
-            //     setCompletedStep(completedStep.concat(2));
-            //     setStepRefresh(!stepRefresh);
-            // }}
+            rightBtn2OnClick={()=>{
+                let tempData = JSON.parse(sessionStorage.getItem("currentData"));
+                tempData.projectDetails = currentInp;
+                sessionStorage.setItem("currentData", JSON.stringify(tempData));
+                setNextStep(3);
+                setCompletedStep(completedStep.concat(2));
+                setStepRefresh(!stepRefresh);
+            }}
             nextStep={"./AddPhases"}
         />
-                    
+
     </div>;
 }

@@ -12,6 +12,7 @@ import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
     let [vendors, setVendors] = useState([]);
+    let [phases, setPhases] = useState([]);
     let [completedStep, setCompletedStep] = useState([]);
     let [currentStep, setCurrentStep] = useState(1);
     let [refresh, setRefresh] = useState(true);
@@ -33,12 +34,28 @@ export default function CreatePost({setCollapse}) {
         {
             stepTxt: "Project",
             path: "/CreatePost/AddProjectDetails",
-            comps: <AddProjectDetails/>
+            comps: <AddProjectDetails
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
+            />
         },
         {
             stepTxt: "Phases",
             path: "/CreatePost/AddPhases",
-            comps: AddPhases
+            comps: <AddPhases
+                value={phases}
+                setValue={setPhases}
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
+                setPhaseVendors={setVendors}
+                phaseVendors={vendors}
+            />
         },
         {
             stepTxt: "Preview",
@@ -70,6 +87,7 @@ export default function CreatePost({setCollapse}) {
                 </SimpleBar>
                 <div className={"right-side-bar-container"}>
                     <SideBar
+                        key={refresh}
                         align={"top"}
                         color={"dark2"}
                         right={true}

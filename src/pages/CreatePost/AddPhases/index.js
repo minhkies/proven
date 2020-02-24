@@ -6,15 +6,15 @@ import 'simplebar/dist/simplebar.min.css';
 import CategoryBtn from "../../../comps/CategoryBtn";
 import BottomBtnBar from "../../../comps/BottomBtnBar";
 
-export default function AddPhases({value, setValue,setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
-    // let [refresh, setRefresh] = useState(true);
+export default function AddPhases({value, setValue,setNextStep, completedStep, setCompletedStep, setStepRefresh, StepRefresh, phaseVendors, setPhaseVendors}) {
+    let [refresh, setRefresh] = useState(true);
     let currentInp = {
         details: null,
-        ponumber: null,
+        poNumber: null,
         budget: null,
-        biddeadline: null,
-        startdate: null,
-        enddate: null,
+        bidDeadline: null,
+        startDate: null,
+        endDate: null,
         scope: null,
         category: []
     };
@@ -70,7 +70,7 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
         },
     ];
 
-    return <div className={'add-phases-container'}>
+    return <div className={'add-phases-container'} key={refresh}>
         <Header
         headingTxt={"Add Project Phases"}
         subTxt={"Complete phase details below. Click the appropriate service to contact proper vendors."}
@@ -90,7 +90,7 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
                         placeholder="Ex. BY19 - LH204"
                         width="100%"
                         star={true}
-                        onChange={(e)=>{currentInp.ponumber=e.target.value}}
+                        onChange={(e)=>{currentInp.poNumber=e.target.value}}
                         />
                 <div className={"horizontal-input"}>
                        <InputField
@@ -115,14 +115,14 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
                         placeholder="Select Date"
                         width="100%"
                         star={true}
-                        onChange={(e)=>{currentInp.startdate=e.target.value}}
+                        onChange={(e)=>{currentInp.startDate=e.target.value}}
                         />
                         <InputField
                         title="Phase End Date"
                         placeholder="Select Date"
                         width="100%"
                         star={true}
-                        onChange={(e)=>{currentInp.enddate=e.target.value}}
+                        onChange={(e)=>{currentInp.endDate=e.target.value}}
                         />
                 </div>
                         <InputField
@@ -131,14 +131,14 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
                         width="100%"
                         star={true}
                         addButton={true}
-                        onChange={(e)=>{currentInp.enddate=e.target.value}}
+                        onChange={(e)=>{currentInp.endDate=e.target.value}}
                         />
 </div>
         </FormContainer>
         <FormContainer
             col={1}
             formHeading={"Category"}
-            formSub={"Please select the type of service(s) or scope of work for which you are prequalifying:"}
+            formSub={"Please select the type of service(s) or scope of work for which you are pre-qualifying:"}
             star={true}
         >
             <div className={"category-container"}>
@@ -146,7 +146,8 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
                     return(
                         <CategoryBtn
                             name={o.name}
-                            onclick={currentInp.category}
+                            onclick={setPhaseVendors}
+                            phaseVendors={phaseVendors}
                         />
                         )
 
@@ -162,17 +163,22 @@ export default function AddPhases({value, setValue,setNextStep, completedStep, s
         </FormContainer>
         <BottomBtnBar
             leftBtnTxt = {"Add New Phase"}
-            // leftBtnOnClick={()=>{
-            //     setValue(value.concat(currentInp));
-            //     setRefresh(!refresh)
-            // }}
+            leftBtnOnClick={()=>{
+                setValue(value.concat(currentInp));
+                setRefresh(!refresh);
+                setPhaseVendors([]);
+                setStepRefresh(!setRefresh);
+            }}
             rightBtn1Txt = {"Cancel"}
             rightBtn2Txt = {"Next Step"}
-            // rightBtn2OnClick={()=>{
-            //     setNextStep(4);
-            //     setCompletedStep(completedStep.concat(3));
-            //     setStepRefresh(!stepRefresh);
-            // }}
+            rightBtn2OnClick={()=>{
+                setNextStep(4);
+                setCompletedStep(completedStep.concat(3));
+                setStepRefresh(!setRefresh);
+                let currentData = JSON.parse(sessionStorage.getItem("currentData"));
+                currentData.phases=value;
+                sessionStorage.setItem("currentData", JSON.stringify(currentData));
+            }}
             nextStep={"./Preview"}
         />
     </div>
