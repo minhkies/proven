@@ -13,7 +13,8 @@
     "react-phone-input-auto-format": "^0.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
-    "simplebar-react": "^2.1.0"
+    "simplebar-react": "^2.1.0",
+    "write-json-file": "^4.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

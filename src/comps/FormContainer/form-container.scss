@@ -27,6 +27,12 @@
   grid-gap: 50px;
 }
 
+.form-col-3{
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr;
+  grid-gap: 50px;
+}
+
 .form-sub{
   font-weight: 600;
   font-size: 12px;
@@ -36,4 +42,12 @@
 
 .form-star{
   color: red;
+}
+
+.edit-btn{
+  font-weight: 600;
+  margin: 0;
+  color: #4FAAFF;
+  font-family: "Open Sans", sans-serif;
+  text-align: right;
 }
