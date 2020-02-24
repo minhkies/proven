@@ -20,7 +20,7 @@ export default function CategoryBtn({name, type, selected, menuIcon, onclick, ph
             iconStyle="gray-plus";
             Icon=FeatherIcon["FiPlus"];
         }
-    } else {
+    } else if (type==="list") {
         btnStyle= "list-btn-container";
         iconStyle="white-plus";
         Icon=FeatherIcon["FiX"];

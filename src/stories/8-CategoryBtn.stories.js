@@ -14,12 +14,13 @@ export const defaultCategoryBtn = () => {
 
 export const activeCategoryBtn = () => {
     return <CategoryBtn
-    selected="activebtn"
+    selected={true}
+    type="bubble"
     />
 };
 
 export const listBtn = () => {
     return <CategoryBtn
-    selected="listbtn"
+    type="list"
     />
 };
