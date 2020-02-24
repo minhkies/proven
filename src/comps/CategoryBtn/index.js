@@ -1,8 +1,8 @@
 
 import React, {useState} from "react";
 import * as FeatherIcon from "react-icons/fi";
-import "../font.scss"
-export default function CategoryBtn({name, type, selected, menuIcon}) {
+
+export default function CategoryBtn({name, type, selected, menuIcon, onclick}) {
     let [removed, setRemoved] = useState(false);
     let [select, setSelect] = useState(false);
 
@@ -29,6 +29,7 @@ export default function CategoryBtn({name, type, selected, menuIcon}) {
   
      return(
             <div className={"category-btn-container" + " " + btnStyle + " " + (removed&&"removed-category")} onClick={()=>{
+                !select?onclick.push(name):onclick.splice(onclick.indexOf(name), 1);
                 !selected?setSelect(!select):(setRemoved(true));
             }}>
                 <p>{name}</p>
@@ -40,5 +41,6 @@ export default function CategoryBtn({name, type, selected, menuIcon}) {
 CategoryBtn.defaultProps = {
     name:"Default Category",
     type: "bubble",
-    selected: false
+    selected: false,
+    onclick: ()=>{}
 };

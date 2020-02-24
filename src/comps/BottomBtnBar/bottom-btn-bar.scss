@@ -1,0 +1,37 @@
+.bottom-bar-container{
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: space-between;
+  font-family: Bai Jamjuree, sans-serif;
+  & .left-btn{
+    background-color: #729CA2;
+    padding: 10px 20px;
+    border-radius: 50px;
+    & p{
+      color: white;
+      margin: 0
+    }
+  }
+
+  & .right-btn-container{
+    display: flex;
+    align-items: center;
+    & .right-btn-1{
+      & p{
+        margin: 0
+      }
+    }
+    & .right-btn-2{
+      background-color: #FF893B;
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin-left: 1vw;
+      text-decoration: none;
+      & p{
+        margin: 0;
+        color: white;
+      }
+    }
+  }
+}

@@ -18,7 +18,7 @@ export default function SideBar({children, right, color, align, collapsed}) {
                         {cloneElement(children[2], {collapsed: collapsed})}
                     </div>
                     ]) :
-                    cloneElement(children, {collapsed: collapsed}) : ""
+                    children : ""
             }
         </div>
     )

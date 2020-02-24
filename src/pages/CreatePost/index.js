@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import ProgressBar from "../../comps/ProgressBar";
 import AddVendors from "./AddVendors";
@@ -11,17 +11,29 @@ import 'simplebar/dist/simplebar.min.css';
 import VendorCard from "../../comps/VendorCard";
 
 export default function CreatePost({setCollapse}) {
+    let [vendors, setVendors] = useState([]);
+    let [completedStep, setCompletedStep] = useState([]);
+    let [currentStep, setCurrentStep] = useState(1);
+    let [refresh, setRefresh] = useState(true);
     setCollapse(true);
     let progressStep = [
         {
             stepTxt: "Vendors",
             path: "/CreatePost/AddVendors",
-            comps: AddVendors
+            comps: <AddVendors
+                value={vendors}
+                setValue={setVendors}
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
+            />
         },
         {
             stepTxt: "Project",
             path: "/CreatePost/AddProjectDetails",
-            comps: AddProjectDetails
+            comps: <AddProjectDetails/>
         },
         {
             stepTxt: "Phases",
@@ -39,9 +51,10 @@ export default function CreatePost({setCollapse}) {
             <div className={"create-container"}>
                 <div className={"progress-container"}>
                     <ProgressBar
+                        key={refresh}
                         progressStep={progressStep}
-                        completedStep={[]}
-                        currentStep={1}
+                        completedStep={completedStep}
+                        currentStep={currentStep}
                     />
                 </div>
                 <SimpleBar className={"step-content"}>
@@ -61,10 +74,23 @@ export default function CreatePost({setCollapse}) {
                         color={"dark2"}
                         right={true}
                     >
-                        <p>Vendor List</p>
+                        <p className={"right-bar-title"}>Vendor List</p>
+                        <div className={"vendor-container"}>
+                            {vendors.map((o,i)=>{
+                                return(
+                                    <VendorCard
+                                        title={o.name}
+                                        category={o.category}
+                                        vendors={vendors}
+                                        setVendors={setVendors}
+                                    />
+                                )
+                            })}
+                            {console.log(vendors)}
+                        </div>
                     </SideBar>
                 </div>
             </div>
         </Router>
-    )
+    );
 }
