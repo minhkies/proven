@@ -5,7 +5,7 @@ export default function BottomBtnBar({leftBtnTxt, leftBtnOnClick, rightBtn1Txt, 
     return(
         <div className={"bottom-bar-container"}>
             <div className={"left-btn-container"}>
-                <div className={"left-btn"} onClick={leftBtnOnClick}>
+                <div className={leftBtnTxt&&"left-btn"} onClick={leftBtnOnClick}>
                     <p>{leftBtnTxt}</p>
                 </div>
             </div>
@@ -23,7 +23,7 @@ export default function BottomBtnBar({leftBtnTxt, leftBtnOnClick, rightBtn1Txt, 
 
 
 BottomBtnBar.defaultProps = {
-    leftBtnTxt: "Hi",
+    leftBtnTxt: "",
     leftBtnOnClick: ()=>{},
     rightBtn1Txt: "Cancel",
     rightBtn1OnClick: ()=>{},

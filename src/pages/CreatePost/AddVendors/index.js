@@ -1,11 +1,10 @@
-import React, {useCallback, useState} from "react";
+import React,{useState} from "react";
 import Header from "../../../comps/Header";
 import FormContainer from "../../../comps/FormContainer";
 import InputField from "../../../comps/InputField";
 import 'simplebar/dist/simplebar.min.css';
 import CategoryBtn from "../../../comps/CategoryBtn";
 import BottomBtnBar from "../../../comps/BottomBtnBar";
-import {Link} from "react-router-dom";
 
 
 export default function AddVendors({value, setValue, setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
