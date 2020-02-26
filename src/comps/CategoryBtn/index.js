@@ -1,35 +1,76 @@
-import React from "react";
+import React, {useState} from "react";
 import * as FeatherIcon from "react-icons/fi";
-import "../font.scss"
-export default function CategoryBtn({name,selected,menuIcon}) {
-    var Icon = FeatherIcon[menuIcon];
-    var btnStyle=null;
-    var iconStyle=null;
 
-    if (selected=="activebtn"){
-        btnStyle= "categorybtn-container-select";
-        iconStyle="whiteplus"
-        Icon=FeatherIcon["FiCheck"];
-    }
-    else if(selected=="inactivebtn") {
-        btnStyle= "categorybtn-container-noselect";
-        iconStyle="grayplus"
-        Icon=FeatherIcon["FiPlus"];
-    }
-    else if (selected=="listbtn"){
-        btnStyle= "listbtn-container";
-        iconStyle="whiteplus"
+export default function CategoryBtn({name, type, selected, menuIcon, onclick, phaseVendors}) {
+    let [removed, setRemoved] = useState(false);
+    let [select, setSelect] = useState(false);
+
+    let Icon = FeatherIcon[menuIcon];
+    let btnStyle = null;
+    let iconStyle = null;
+
+    if (type==="bubble"){
+        if (select===true || selected===true){
+            btnStyle= "category-btn-container-select";
+            iconStyle="white-plus";
+            Icon=FeatherIcon["FiCheck"];
+        }
+        else {
+            btnStyle= "category-btn-container-no-select";
+            iconStyle="gray-plus";
+            Icon=FeatherIcon["FiPlus"];
+        }
+    } else if (type==="list") {
+        btnStyle= "list-btn-container";
+        iconStyle="white-plus";
         Icon=FeatherIcon["FiX"];
     }
      return(
-            <div className={btnStyle}>
-            <p>{name}</p>
-            <Icon className ={iconStyle} size={22}/>
+            <div className={"category-btn-container" + " " + btnStyle + " " + (removed&&"removed-category")} onClick={()=>{
+
+                    // !select?onclick.push(name):onclick.splice(onclick.indexOf(name), 1);
+                    !selected?setSelect(!select):(setRemoved(true));
+
+
+                if (!select===true){
+                    if (phaseVendors!==null) {
+                        if (sessionStorage.getItem("currentData")) {
+                            let vendors = JSON.parse(sessionStorage.getItem("currentData")).vendors;
+                            let tempVendors = [];
+                            for (let i = 0; i < vendors.length; i++) {
+                                if (vendors[i].category.indexOf(name) !== -1) {
+                                    tempVendors.push(vendors[i])
+                                }
+                            }
+                            onclick(phaseVendors.concat(tempVendors));
+                        }
+                    } else {
+                        onclick.push(name)
+                    }
+                } else {
+                    if (phaseVendors!==null) {
+                        let tempVendors = phaseVendors;
+                        for (let i=0; i < tempVendors.length; i++){
+                            tempVendors[i].category.indexOf(name)!==-1&&tempVendors.splice(i, 1)
+                        }
+                        onclick([].concat(tempVendors));
+                    } else {
+                        onclick.splice(onclick.indexOf(name), 1);
+                    }
+
+                }
+
+            }}>
+                <p>{name}</p>
+                <Icon className ={"category-icon" + " " + iconStyle} size={18}/>
             </div>
             )
 }
 
 CategoryBtn.defaultProps = {
     name:"Default Category",
-    selected:"inactivebtn"
+    type: "bubble",
+    selected: false,
+    onclick: ()=>{},
+    phaseVendors: null
 };

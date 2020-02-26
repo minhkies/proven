@@ -1,0 +1,31 @@
+.add-project-details-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  & .input-container{
+    display: flex;
+    flex-direction: column;
+    & > *{
+      margin-bottom: 20px;
+    };
+
+    & > *:last-child{
+      margin-bottom: 0;
+    }
+    & .horizontal-input{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.5vw;
+    }
+
+    & .horizontal-input-3{
+      display: grid;
+      grid-template-columns: 2fr 1fr 3fr;
+      grid-gap: 1.5vw;
+    }
+    .description-field{
+      height: 80% !important;
+    }
+  }
+
+}
