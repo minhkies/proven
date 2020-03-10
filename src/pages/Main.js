@@ -66,7 +66,9 @@ export default function Main() {
                     />
                     <Upgrade/>
                 </SideBar>
+
                 <div className={"main-content"}>
+                    
                     <Switch>
                         {routes.map((r, i) => (
                             <Route
@@ -75,7 +77,9 @@ export default function Main() {
                                 children={r.page}
                             />
                         ))}
+                     
                     </Switch>
+                    
                 </div>
             </div>
         </Router>

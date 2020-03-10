@@ -1,0 +1,73 @@
+.folder-container{
+    .heading{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+    .heading-inactive{
+        display: none;
+    }
+    .address-inactive{
+        display: none;
+    }
+    .icon-inactive{
+        display: none;
+    }
+    .icon-active{
+        margin-bottom: 5px;
+    }
+    .upgrade-inactive{
+        display:none;
+    }
+    .folder-svg-active{
+        background-image: url("../../media/svg/folder.svg");
+        width: 226px;
+        height: 150px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+        color:white;
+        font-family: Bai Jamjuree;
+        font-style: normal;
+        font-weight: bold;
+        flex-direction: column;
+    }
+    .folder-svg-inactive{
+        background-image: url("../../media/svg/white_folder.svg");
+        width: 226px;
+       height: 150px;
+       background-size: contain;
+       background-repeat: no-repeat;
+       display: flex;
+       justify-content: flex-end;
+       padding: 10px;
+       color:#979797;
+       font-family: Bai Jamjuree;
+       font-style: normal;
+       font-weight: bold;
+       flex-direction: column;
+       }
+
+       .folder-svg-new{
+        background-image: url("../../media/svg/white_folder.svg");
+         width: 226px;
+       height:150px;
+       background-size: contain;
+       background-repeat: no-repeat;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       padding: 10px;
+       color:#FF893B;
+       font-family: Bai Jamjuree;
+       font-style: normal;
+       font-weight: bold;
+       flex-direction: column;
+       }
+       .remove-folder{
+           display: none;
+       }
+}

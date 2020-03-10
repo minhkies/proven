@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Header({headingTxt, subTxt}){
+export default function Header({headingTxt, subTxt, font}){
     return(
         <div className={"header-container"}>
-            <p className={"heading-txt"}>{headingTxt}</p>
+            <p style={{fontSize:font}} className={"heading-txt"}>{headingTxt}</p>
             <p className={"sub-txt"}>{subTxt}</p>
         </div>
     )
@@ -11,5 +11,6 @@ export default function Header({headingTxt, subTxt}){
 
 Header.defaultProps = {
     headingTxt: "Header",
-    subTxt: "Sub-header",
+    subTxt: "",
+    font:"30px"
 };
