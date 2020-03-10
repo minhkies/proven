@@ -8,17 +8,17 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 
 export default function AddPhases({value, setValue, setNextStep, completedStep, setCompletedStep, setStepRefresh, StepRefresh, phaseVendors, setPhaseVendors}) {
     let [refresh, setRefresh] = useState(true);
-    let [scope, setScope] = useState([]);
-    let currentInp = {
+    let [currentInp, setCurrentInp] = useState({
         details: null,
         poNumber: null,
         budget: null,
         bidDeadline: null,
         startDate: null,
         endDate: null,
-        scope: null,
+        scope: [],
         category: []
-    };
+    });
+
     let categoryList = [
         {
             name: "Abatement (Asbetos, Lead, Silica)",
@@ -85,7 +85,8 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                     width="100%"
                     star={true}
                     onChange={(e) => {
-                        currentInp.details = e.target.value;
+                        // currentInp.details = e.target.value;
+                        setCurrentInp({...currentInp, details: e.target.value});
                     }}
                 />
                 <InputField
@@ -94,7 +95,7 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                     width="100%"
                     star={true}
                     onChange={(e) => {
-                        currentInp.poNumber = e.target.value
+                        setCurrentInp({...currentInp, poNumber: e.target.value});
                     }}
                 />
                 <div className={"horizontal-input"}>
@@ -105,7 +106,7 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                         star={true}
                         number={true}
                         onChange={(e) => {
-                            currentInp.budget = e.target.value
+                            setCurrentInp({...currentInp, budget: e.target.value});
                         }}
                     />
                     <InputField
@@ -114,7 +115,7 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                         width="100%"
                         star={true}
                         onChange={(e) => {
-                            currentInp.bidDeadline = e.target.value
+                            setCurrentInp({...currentInp, bidDeadline: e.target.value});
                         }}
                     />
                 </div>
@@ -125,7 +126,7 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                         width="100%"
                         star={true}
                         onChange={(e) => {
-                            currentInp.startDate = e.target.value
+                            setCurrentInp({...currentInp, startDate: e.target.value});
                         }}
                     />
                     <InputField
@@ -134,27 +135,25 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                         width="100%"
                         star={true}
                         onChange={(e) => {
-                            currentInp.endDate = e.target.value
+                            setCurrentInp({...currentInp, endDate: e.target.value});
                         }}
                     />
                 </div>
                 <InputField
                     title="Scope of Phase"
-                    placeholder="Select Date"
+                    placeholder="Scope"
                     width="100%"
                     star={true}
                     addButton={true}
-                    onChange={(e) => {
-                        console.log("hihihi", currentInp);
-                    }}
-                    onClick={setScope}
-                    scope={scope}
+                    onChange={(e) => {}}
+                    currentInp={currentInp}
+                    onclick={setCurrentInp}
+                    scope={currentInp.scope}
                 />
                 <div className={"scope-container"}>
-                    {console.log("hahahaha", scope)}
-                    {scope.map((o,i)=>{
+                    {currentInp.scope.map((o,i)=>{
                         return <CategoryBtn
-                            type={"other"}
+                            type={"list"}
                             name={o}
                         />
                     })}
@@ -174,9 +173,11 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
                             name={o.name}
                             onclick={setPhaseVendors}
                             phaseVendors={phaseVendors}
+                            category = {currentInp.category}
+                            setCategory = {setCurrentInp}
+                            currentInp = {currentInp}
                         />
                     )
-
                 })}
             </div>
 
@@ -190,12 +191,20 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
         <BottomBtnBar
             leftBtnTxt={"Add New Phase"}
             leftBtnOnClick={() => {
-                currentInp.scope=scope;
                 setValue(value.concat(currentInp));
                 setRefresh(!refresh);
                 setPhaseVendors([]);
                 setStepRefresh(!setRefresh);
-                setScope([].concat([]));
+                setCurrentInp({
+                    details: null,
+                    poNumber: null,
+                    budget: null,
+                    bidDeadline: null,
+                    startDate: null,
+                    endDate: null,
+                    scope: [],
+                    category: []
+                })
             }}
             rightBtn1Txt={"Cancel"}
             rightBtn2Txt={"Next Step"}

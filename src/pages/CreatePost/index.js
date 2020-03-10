@@ -60,7 +60,7 @@ export default function CreatePost({setCollapse}) {
         {
             stepTxt: "Preview",
             path: "/CreatePost/Preview",
-            comps: Preview
+            comps: <Preview/>
         }
     ];
     return(
@@ -76,6 +76,7 @@ export default function CreatePost({setCollapse}) {
                 </div>
                 <SimpleBar className={"step-content"}>
                     <Switch>
+
                         {progressStep.map((r,i)=>(
                             <Route
                                 key={i}
@@ -85,7 +86,7 @@ export default function CreatePost({setCollapse}) {
                         ))}
                     </Switch>
                 </SimpleBar>
-                <div className={"right-side-bar-container" + " " + (currentStep===4&&"remove-right-side-bar")}>
+                <div className={"right-side-bar-container" + " " + ((currentStep===4||currentStep===2)?"remove-right-side-bar":"show-right-side-bar")}>
                     <SideBar
                         key={refresh}
                         align={"top"}
@@ -104,7 +105,6 @@ export default function CreatePost({setCollapse}) {
                                     />
                                 )
                             })}
-                            {console.log(vendors)}
                         </div>
                     </SideBar>
                 </div>
