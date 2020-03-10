@@ -1,9 +1,11 @@
 .info-display-container{
   display: flex;
   flex-direction: column;
+  font-family: "Open Sans", sans-serif;
   & .preview-info-title{
     font-weight: 600;
     margin-bottom: 0;
+    font-size: 12px;
   }
 
   & .remove-margin-top{
