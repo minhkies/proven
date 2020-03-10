@@ -26,7 +26,7 @@ export default function AddProjectDetails({setNextStep, completedStep, setComple
                         star="true"
                         onChange={(e)=>{currentInp.name=e.target.value}}
                     />
-                    <div class={"horizontal-input"}>
+                    <div className={"horizontal-input"}>
                     <InputField
                         title="Project ID"
                         placeholder="Ex. BY19 - LH204"

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../../../comps/Header";
 import FormContainer from "../../../comps/FormContainer";
 import PreviewInfoDisplay from "../../../comps/PreviewInfoDisplay";
@@ -10,46 +10,118 @@ import BottomBtnBar from "../../../comps/BottomBtnBar";
 
 export default function Preview({value, setValue, setNextStep, completedStep, setCompletedStep, stepRefresh, setStepRefresh}) {
     let currentData;
-    if(sessionStorage.getItem("currentData")) {
+    let [edit, setEdit] = useState([]);
+    let [projectEdit, setProjectEdit] = useState([false]);
+
+    useEffect(()=>{
         currentData = JSON.parse(sessionStorage.getItem("currentData"));
-        return (<div className={"preview-container"}>
-            <Header
-                headingTxt={"Project Overview"}
-                subTxt={"Please review project posting. Click the ‘edit’ icon to make any changes."}
-                marginTop={false}
-            />
-            <FormContainer formHeading={"Project Details"} col={3}>
-                <div className={"preview-details-container"}>
-                    <PreviewInfoDisplay
-                        title={"Project Name"}
-                        content={currentData.projectDetails.name}
-                        marginTop={false}
-                    /><PreviewInfoDisplay
-                        title={"Project ID"}
-                        content={currentData.projectDetails.projectId}
-                    /><PreviewInfoDisplay
-                        title={"Description"}
-                        content={currentData.projectDetails.description}
-                    />
-                </div>
-            </FormContainer>
-            {currentData.phases.map((o,i)=>{
-                return(
-                    <FormContainer formHeading={"Phase Details"} col={3}>
-                        <div className={"preview-phases-container"}>
+        let tempArr=[];
+        for (let i = 0; i < currentData.phases.length; i++) {
+            tempArr.push(false)
+        }
+        setEdit([].concat(tempArr));
+    },[]);
+
+    if (sessionStorage.getItem("currentData")) {
+        currentData = JSON.parse(sessionStorage.getItem("currentData"));
+        return (
+            <div className={"preview-container"}>
+                <Header
+                    headingTxt={"Project Overview"}
+                    subTxt={"Please review project posting. Click the ‘edit’ icon to make any changes."}
+                    marginTop={false}
+                />
+                <FormContainer
+                    formHeading={"Project Details"}
+                    col={3}
+                    onclick={setProjectEdit}
+                    edit={projectEdit}
+                    pos={0}
+                    key={0}
+                >
+                    {projectEdit[0]?
+                        <div className={"preview-details-container"}>
+                            <InputField
+                                title={"Project Name"}
+                                placeholder={currentData.projectDetails.name}
+                                marginTop={false}
+                            />
+                            <InputField
+                                title={"Project ID"}
+                                placeholder={currentData.projectDetails.projectId}
+                            />
+                            <InputField
+                                title={"Project Description"}
+                                placeholder={currentData.projectDetails.description}
+                            />
+                        </div> : <div className={"preview-details-container"}>
                             <PreviewInfoDisplay
+                                title={"Project Name"}
+                                content={currentData.projectDetails.name}
+                                marginTop={false}
+                            /><PreviewInfoDisplay
+                            title={"Project ID"}
+                            content={currentData.projectDetails.projectId}
+                        /><PreviewInfoDisplay
+                            title={"Description"}
+                            content={currentData.projectDetails.description}
+                        />
+                        </div>
+                    }
+                </FormContainer>
+                {currentData.phases.map((o, i) => {
+                    return (
+                        <FormContainer
+                            formHeading={"Phase Details"}
+                            col={3}
+                            onclick={setEdit}
+                            edit={edit}
+                            pos={i}
+                            key={i}
+                        >
+                            {edit[i]?<div className={"preview-phases-container"}>
+                                <InputField
+                                    title={"Phase Name"}
+                                    placeholder={o.details}
+                                    marginTop={false}
+                                />
+                                <InputField
+                                    title={"PO Number"}
+                                    placeholder={o.poNumber}
+                                />
+                                <div className={"preview-phase-grid-4"}>
+                                    <InputField
+                                        title={"Budget"}
+                                        placeholder={o.budget}
+                                    />
+                                    <InputField
+                                        title={"Bid deadline"}
+                                        placeholder={o.bidDeadline}
+                                    />
+                                    <InputField
+                                        title={"Start"}
+                                        placeholder={o.startDate}
+                                    />
+                                    <InputField
+                                        title={"End Date"}
+                                        placeholder={o.endDate}
+                                    />
+                                </div>
+                                </div> : <div className={"preview-phases-container"}>
+                                <PreviewInfoDisplay
                                 title={"Phase Name"}
                                 content={o.details}
                                 marginTop={false}
-                            />
-                            <PreviewInfoDisplay
+                                edit={edit[i]}
+                                />
+                                <PreviewInfoDisplay
                                 title={"PO Number"}
                                 content={o.poNumber}
-                            />
-                            <div className={"preview-phase-grid-4"}>
+                                />
+                                <div className={"preview-phase-grid-4"}>
                                 <PreviewInfoDisplay
-                                    title={"Budget"}
-                                    content={o.budget}
+                                title={"Budget"}
+                                content={o.budget}
                                 />
                                 <PreviewInfoDisplay
                                 title={"Bid Deadline"}
@@ -63,28 +135,52 @@ export default function Preview({value, setValue, setNextStep, completedStep, se
                                 title={"End Date"}
                                 content={o.endDate}
                                 />
-                            </div>
-                            <div className={"preview-scope-container"}>
+                                </div>
+                                <div className={"preview-scope-container"}>
                                 <p className={"preview-heading"}>
-                                    Scope of Phase
+                                Scope of Phase
                                 </p>
-                                <div className={"scope-container"}></div>
-                            </div>
-                            <div className={"preview-category-container"}>
+                                <div className={"scope-container"}>
+                                {o.scope.map((x, i) => {
+                                    return <CategoryBtn
+                                        type={"view"}
+                                        name={x}
+                                    />
+                                })}
+                                </div>
+                                </div>
+                                <div className={"preview-category-container"}>
                                 <p className={"preview-heading"}>
-                                    Category
+                                Category
                                 </p>
-                                <div className={"category-container"}></div>
-                            </div>
-
-                        </div>
-                    </FormContainer>
+                                <div className={"category-container"}>
+                                {o.category.map((x, i) => {
+                                    return <CategoryBtn
+                                        type={"view"}
+                                        name={x}
+                                    />
+                                })}
+                                </div>
+                                </div>
+                                </div>
+                            }
+                        </FormContainer>
                     )
-
-            })}
-
-        </div>)
+                })}
+                <BottomBtnBar
+                    rightBtn1Txt={"Cancel"}
+                    rightBtn2Txt={"Post Project"}
+                    rightBtn2OnClick={() => {
+                        // setNextStep(4);
+                        // setCompletedStep(completedStep.concat(3));
+                        // setStepRefresh(!setRefresh);
+                        // let currentData = JSON.parse(sessionStorage.getItem("currentData"));
+                        // currentData.phases = value;
+                        // sessionStorage.setItem("currentData", JSON.stringify(currentData));
+                    }}
+                    nextStep={"./Preview"}
+                />
+            </div>
+        )
     }
-
-
 }

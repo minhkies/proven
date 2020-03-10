@@ -2,13 +2,11 @@
 import React, {useState} from "react";
 import * as FeatherIcon from "react-icons/fi";
 
-export default function CategoryBtn({name, type, selected, menuIcon, onclick, phaseVendors}) {
+export default function CategoryBtn({name, type, selected, menuIcon, onclick, phaseVendors, category, setCategory, currentInp}) {
     let [removed, setRemoved] = useState(false);
     let [select, setSelect] = useState(false);
 
-    let Icon = FeatherIcon[menuIcon];
-    let btnStyle = null;
-    let iconStyle = null;
+    let Icon, btnStyle, iconStyle = null;
 
     if (type==="bubble"){
         if (select===true || selected===true){
@@ -25,50 +23,77 @@ export default function CategoryBtn({name, type, selected, menuIcon, onclick, ph
         btnStyle= "list-btn-container";
         iconStyle="white-plus";
         Icon=FeatherIcon["FiX"];
+    } else if (type==="view"){
+        btnStyle= "category-btn-container-select";
     }
   
      return(
-            <div className={"category-btn-container" + " " + btnStyle + " " + (removed&&"removed-category")} onClick={()=>{
+            <div className={"category-btn-container" + " " + btnStyle + " " + (removed&&"removed-category") + " " + ((type!=="bubble"&&type!=="list")&&"even-padding-btn")} onClick={()=>{
 
+                if (type==="list"||type==="bubble"){
                     // !select?onclick.push(name):onclick.splice(onclick.indexOf(name), 1);
                     !selected?setSelect(!select):(setRemoved(true));
 
+                    if (!select===true){
+                        if (phaseVendors!==null) {
+                            if (sessionStorage.getItem("currentData")) {
+                                let vendors = JSON.parse(sessionStorage.getItem("currentData")).vendors;
+                                let tempVendors = phaseVendors;
+                                for (let i = 0; i < vendors.length; i++) {
+                                    if (vendors[i].category.indexOf(name) !== -1) {
+                                        let count = 0;
+                                        for (let x = 0; x < tempVendors.length; x++){
+                                            if (vendors[i].name === tempVendors[x].name){
+                                                count++
+                                            }
+                                        }
+                                        if (count===0){
+                                            tempVendors.push(vendors[i])
+                                        }
 
-                if (!select===true){
-                    if (phaseVendors!==null) {
-                        if (sessionStorage.getItem("currentData")) {
-                            let vendors = JSON.parse(sessionStorage.getItem("currentData")).vendors;
-                            let tempVendors = [];
-                            for (let i = 0; i < vendors.length; i++) {
-                                if (vendors[i].category.indexOf(name) !== -1) {
-                                    tempVendors.push(vendors[i])
+                                    }
+                                }
+                                onclick([].concat(tempVendors));
+                            }
+                        } else {
+                            onclick.push(name);
+                        }
+                        if (setCategory){
+                            setCategory({...currentInp, category: category.concat(name)});
+                        }
+
+                    } else {
+                        if (phaseVendors!==null) {
+                            let tempVendors = phaseVendors;
+                            let pos = [];
+                            for (let i=0; i < phaseVendors.length; i++){
+                                console.log("herrrre",i, phaseVendors.length, tempVendors);
+                                if (tempVendors[i].category.indexOf(name)!==-1){
+                                    pos.push(i);
                                 }
                             }
-                            onclick(phaseVendors.concat(tempVendors));
+                            if (pos!==[]){
+                                for (let i=pos.length-1; i>=0; i--){
+                                    tempVendors.splice(pos[i], 1);
+                                }
+                            }
+                            onclick([].concat(tempVendors));
+                        } else {
+                            onclick.splice(onclick.indexOf(name), 1);
                         }
-                    } else {
-                        onclick.push(name)
-                    }
-                } else {
-                    if (phaseVendors!==null) {
-                        let tempVendors = phaseVendors;
-                        for (let i=0; i < tempVendors.length; i++){
-                            tempVendors[i].category.indexOf(name)!==-1&&tempVendors.splice(i, 1)
-                        }
-                        onclick([].concat(tempVendors));
-                    } else {
-                        onclick.splice(onclick.indexOf(name), 1);
-                    }
 
+                        if (setCategory){
+                            setCategory({...currentInp, category: category.splice(category.indexOf(name), 1)});
+                        }
+
+                    }
                 }
-
             }}>
                 <p>{name}</p>
-                <Icon className ={"category-icon" + " " + iconStyle} size={18}/>
+                {(type==="bubble"||type==="list")&&<Icon className ={"category-icon" + " " + iconStyle} size={18}/>}
             </div>
             )
 }
-
 CategoryBtn.defaultProps = {
     name:"Default Category",
     type: "bubble",
