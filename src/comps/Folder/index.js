@@ -8,18 +8,18 @@ export default function Folder({type,heading,address,onClick,selected}){
     let headingStyle = "heading";
     let upgradeCta = "";
     let iconStyle = "";
-    
-    if (type=="inactive"){
+
+    if (type==="inactive"){
         folderType = "folder-svg-active";
         iconStyle = "icon-inactive";
         upgradeCta = "upgrade-inactive";
     }
-    else if (type=="active"){
+    else if (type==="active"){
         folderType = "folder-svg-inactive";
         iconStyle = "icon-inactive";
         upgradeCta = "upgrade-inactive";
     }
-    else if(type=="new") {
+    else if(type==="new") {
         folderType = "folder-svg-new";
         headingStyle = "heading-inactive";
         addressStyle = "address-inactive";

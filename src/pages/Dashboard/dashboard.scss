@@ -45,26 +45,66 @@
     border-radius: 25px;
   }
 }
-.main {
+.dashboard-content-container {
   padding:50px;
   margin: 0;
-  .recent-projects{
+  display: flex;
+  flex-direction: column;
+  .welcome-bar-container{
+    display: flex;
+    justify-content: space-between;
+    .left-welcome-container{
+      font-family: Bai Jamjuree, sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      p{
+        margin: 0
+      }
+      .welcome-username{
+        color: #649DFF
+      }
+    }
+    .right-welcome-container{
+      display: flex;
+      align-items: center;
+      & > * {
+        margin-left: 20px;
+      }
+      .profile-container{
+        display: flex;
+        align-items: center;
+        .profile-photo{
+          background-image: url("../../media/img/profile.png");
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+          margin-right: 15px;
+        }
+        .username{
+          font-family: Bai Jamjuree, sans-serif;
+          font-weight: 600;
+          font-size: 14px;
+          margin: 0
+        }
+      }
+    }
+
+  }
+  .project-selection-container{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    .project-selection-header{
+      display: flex;
+      align-items: center;
+    }
+    .folder-container{
+      display: flex;
+      overflow-y: hidden;
+      //overflow-x: scroll;
+      height: 200px;
+      margin-top: 50px;
+    }
   }
-      .project-section{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-        margin-bottom: 100px;
-      }
-      .bidding-section{
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        justify-content: space-between;
-      }
-  
 }

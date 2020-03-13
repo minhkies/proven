@@ -1,17 +1,21 @@
 import React from "react";
-import {Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
+import Notification_active from "../../media/img/bell-active.svg";
 import Header from "../../comps/Header";
 import Folder from "../../comps/Folder";
 import CreatePost from "../CreatePost";
 import SideBar from "../../comps/SideBar";
 import BiddingBar from "../../comps/BiddingBar";
+import ProgressBar from "../../comps/ProgressBar";
+import ProjectBar from "../../comps/ProjectsBar";
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
 let CheckFirstTime = () =>{
     if(localStorage.getItem("firstTime")){
         localStorage.setItem("firstTime", JSON.stringify(true));
         return true;
     } else {
-        //Remove the next line in the future
         localStorage.setItem("firstTime", JSON.stringify(true));
         return false;
     }
@@ -34,59 +38,62 @@ let FirstTime = () => {
 
 let SavedUser = () => {
     return (
-        <div className="main">
-        <div className={"recent-projects"}>
-            <Header
-            font="20px"
-            headingTxt={"Recent Projects"}
-            marginTop
-            />
-            <div className={"project-section"}>
-            <Folder />
-            <Folder />
-            <Folder />
+        <div className="dashboard-content-container">
+            <div className={"welcome-bar-container"}>
+                <div className={"left-welcome-container"}>
+                    <p>Welcome back, <span className={"welcome-username"}>Lawrence</span></p>
+                </div>
+                <div className={"right-welcome-container"}>
+                    <img className={"notification"} src={Notification_active} alt={"Notification"}/>
+                    <div className={"profile-container"}>
+                        <div className={"profile-photo"}/>
+                        <p className={"username"}>Lawrence</p>
+                    </div>
+                </div>
             </div>
-            <div className = {"bidding-section"}>
-                <Header
-                font="20px"
-                headingTxt={"Bidding Notifications"}
-                />
-                <BiddingBar />
-                <BiddingBar />
-                <BiddingBar />
-                <BiddingBar />
-                <BiddingBar />
-                <BiddingBar />
+            <div className={"project-selection-container"}>
+                <div className={"project-selection-header"}>
+                    <Header
+                        headingTxt={"Recent Projects"}
+                        margin={false}
+                        font={"20px"}
+                    />
+                    <ProjectBar
+                        projects={2}
+                        completed={1}
+                    />
+                </div>
+                <SimpleBar className={"folder-container"}>
+
+                </SimpleBar>
             </div>
-        </div>
         </div>
     )
-}
+};
 
 
 const Dash = () => {
     return(
-        
+
         <div className={"dashboard-container"}>
-            {/* {CheckFirstTime()?<FirstTime/>:<SavedUser />} */}
-            <SavedUser />
+             {/*{CheckFirstTime()?<FirstTime/>:<SavedUser />}*/}
+        <SavedUser/>
         </div>
-        
+
     )
 };
 
 
 export default function Dashboard({setCollapse}) {
     setCollapse(false);
-    
+
     return(
-        
+        <BrowserRouter>
             <Switch>
-                
-                <Route exact path={"/Dashboard"} children={Dash}/>
-                <Route path={"/CreatePost"} children={CreatePost}/>
-                
+                <Route exact path={"/Dashboard"} children={()=><Dash/>}/>
+                <Route path={"/CreatePost"} children={()=><CreatePost/>}/>
             </Switch>
+        </BrowserRouter>
 
     )
 }

@@ -21,7 +21,7 @@
         display:none;
     }
     .folder-svg-active{
-        background-image: url("../../media/svg/folder.svg");
+        background-image: url("../../media/img/folder-orange.svg");
         width: 226px;
         height: 150px;
         background-size: contain;
@@ -36,7 +36,7 @@
         flex-direction: column;
     }
     .folder-svg-inactive{
-        background-image: url("../../media/svg/white_folder.svg");
+        background-image: url("../../media/img/folder-white.svg");
         width: 226px;
        height: 150px;
        background-size: contain;
@@ -52,7 +52,7 @@
        }
 
        .folder-svg-new{
-        background-image: url("../../media/svg/white_folder.svg");
+        background-image: url("../../media/img/folder-white.svg");
          width: 226px;
        height:150px;
        background-size: contain;

@@ -3,8 +3,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
 } from "react-router-dom";
+
 import SideBar from "../comps/SideBar";
 import Logo from "../comps/Logo";
 import Menu from "../comps/Menu";
@@ -38,17 +39,18 @@ export default function Main() {
     const routes = [
         {
             path: "/Dashboard",
-            page: <Dashboard setCollapse = {setCollapse}/>
+            page: <Dashboard setCollapse={setCollapse}/>,
+            exact: true
         },
         {
             path: "/Projects",
-            page: Projects
+            page: <Projects/>
         },{
             path: "/Vendors",
-            page: Vendors
+            page: <Vendors/>
         },{
             path: "/CreatePost",
-            page: <CreatePost setCollapse = {setCollapse}/>
+            page: <CreatePost setCollapse={setCollapse}/>
         }
     ];
 
@@ -68,18 +70,17 @@ export default function Main() {
                 </SideBar>
 
                 <div className={"main-content"}>
-                    
                     <Switch>
                         {routes.map((r, i) => (
                             <Route
                                 key={i}
                                 path={r.path}
-                                children={r.page}
+                                children={()=>r.page}
+                                exact={r.exact}
                             />
                         ))}
-                     
+
                     </Switch>
-                    
                 </div>
             </div>
         </Router>
