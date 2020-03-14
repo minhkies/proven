@@ -7,6 +7,7 @@ import CreatePost from "../CreatePost";
 import SideBar from "../../comps/SideBar";
 import BiddingBar from "../../comps/BiddingBar";
 import ProgressBar from "../../comps/ProgressBar";
+import Upgrade from "../../comps/SideBar/Upgrade";
 import ProjectBar from "../../comps/ProjectsBar";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
@@ -37,7 +38,11 @@ let FirstTime = () => {
 };
 
 let SavedUser = () => {
+    var projects= localStorage.getItem("projects");
+    projects = JSON.parse(projects);
+    console.log(projects.length);
     return (
+        
         <div className="dashboard-content-container">
             <div className={"welcome-bar-container"}>
                 <div className={"left-welcome-container"}>
@@ -60,14 +65,29 @@ let SavedUser = () => {
                     />
                     <ProjectBar
                         projects={2}
-                        completed={1}
+                        completed={projects.length}
                     />
                 </div>
-                <SimpleBar className={"folder-container"}>
-
+             
+                <SimpleBar style={{ maxHeight: 300 }} className={"folder-container"}>
+                {projects.map((o,i)=>(
+                            <Folder
+                            key={i}
+                            heading={o.projectId}
+                            projectId={o.name}
+                        />
+                        ))}
+                        <Folder type="locked"/>
+                        <div className={"upgrade-container"}>
+                    <p className={"upgrade-text"}>Upgrade to unlock more projects.</p>
+                    <p>Choose a plan that fits your needs.</p>
+                    <Upgrade text={"See Pricing Plans"}/>
+                    </div>
                 </SimpleBar>
             </div>
         </div>
+        
+        
     )
 };
 
@@ -76,7 +96,7 @@ const Dash = () => {
     return(
 
         <div className={"dashboard-container"}>
-             {/*{CheckFirstTime()?<FirstTime/>:<SavedUser />}*/}
+             {/* {CheckFirstTime()?<FirstTime/>:<SavedUser />} */}
         <SavedUser/>
         </div>
 
