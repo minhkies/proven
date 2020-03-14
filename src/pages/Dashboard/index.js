@@ -77,13 +77,24 @@ let SavedUser = () => {
                             projectId={o.name}
                         />
                         ))}
+                        <Folder type="new"/>
                         <Folder type="locked"/>
                         <div className={"upgrade-container"}>
                     <p className={"upgrade-text"}>Upgrade to unlock more projects.</p>
                     <p>Choose a plan that fits your needs.</p>
                     <Upgrade text={"See Pricing Plans"}/>
                     </div>
-                </SimpleBar>
+                </SimpleBar> 
+            </div>
+            <div className={"project-analytics"}>
+                <div className={"analytics-header"}>
+            <Header
+                        headingTxt={"Project Analytics"}
+                        margin={false}
+                        font={"20px"}
+                    />
+                    <p className={"select-text"}>Select a project</p>
+                    </div>
             </div>
         </div>
         

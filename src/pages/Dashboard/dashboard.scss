@@ -120,5 +120,16 @@ margin-top: -5px;
         font-weight: bold;
       }
     }
+    
+  }
+  .project-analytics{
+    display: flex;
+    margin-top: 50px;
+    .select-text{
+      margin-top: 5px;
+    }
+  }
+  .analytics-header{
+    display: flex;
   }
 }

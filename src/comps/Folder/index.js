@@ -16,6 +16,7 @@ export default function Folder({type,heading,projectId,onClick,selected}){
     let addressStyle = null;
     let headingStyle = "heading";
     let upgradeCta = "";
+    let folderText = "Add New Project";
     let iconStyle = "";
 if (type=="project"){
     if (select==true||selected==true){
@@ -37,7 +38,7 @@ if (type=="project"){
         headingStyle = "heading-inactive";
         addressStyle = "address-inactive";
         iconStyle = "icon-active";
-        upgradeCta = "upgrade-inactive";
+
     
 }
 else if(type="locked"){
@@ -52,7 +53,7 @@ else if(type="locked"){
                 <div className = {headingStyle}>{heading}</div>
                 <div className = {addressStyle}>{projectId}</div>
                 <Icon className ={iconStyle} color={type=="new"?"#FF893B":"#A9A9A9"} size ={33} stroke-width ={1.5} />
-                <div className={upgradeCta}>Upgrade CTA</div>
+                <div className={upgradeCta}>Add New Project</div>
             </div>
         </div>
     )
