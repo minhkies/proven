@@ -182,10 +182,8 @@ export default function Preview({value, setValue, setNextStep, completedStep, se
                         currentData.projectDetails.phases = currentData.phases;
                         localStorage.setItem("vendors", JSON.stringify(currentData.vendors));
                         if (localStorage.getItem("projects")!==null){
-                            console.log(JSON.parse(localStorage.getItem("projects")));
-                            projects = JSON.parse(localStorage.getItem("project"));
+                            projects = JSON.parse(localStorage.getItem("projects"));
                         }
-                        console.log("hehe", projects);
                         projects.push(currentData.projectDetails);
                         localStorage.setItem("projects", JSON.stringify(projects));
                         localStorage.setItem("profile", JSON.stringify({name: "Lawrence", tier: 1, trial: true}))
