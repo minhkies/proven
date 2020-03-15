@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.0.3",
+    "@stripe/stripe-js": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,6 +18,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
     "simplebar-react": "^2.1.0",
+    "stripe": "^8.32.0",
     "write-json-file": "^4.3.0"
   },
   "resolutions": {
@@ -30,7 +33,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "proxy":  "https://gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306",
+  "proxy": "https://gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306",
   "eslintConfig": {
     "extends": "react-app"
   },

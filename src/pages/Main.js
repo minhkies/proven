@@ -14,6 +14,7 @@ import CreatePost from "./CreatePost";
 import Dashboard from "./Dashboard";
 import Projects from "./Projects";
 import Vendors from "./Vendors";
+import Payment from "./Payment";
 
 export default function Main() {
     let [collapse, setCollapse] = useState(false);
@@ -51,6 +52,10 @@ export default function Main() {
         },{
             path: "/CreatePost",
             page: <CreatePost setCollapse={setCollapse}/>
+        },
+        {
+            path: "/Payment",
+            page: <Payment/>
         }
     ];
 

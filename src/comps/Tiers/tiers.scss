@@ -1,0 +1,8 @@
+@import "src/comps/Tiers/TierOption/tierOption";
+.tiers-container{
+  display: flex;
+  margin-bottom: 50px;
+  & div:last-child{
+    margin-right: 0 !important;
+}
+}
