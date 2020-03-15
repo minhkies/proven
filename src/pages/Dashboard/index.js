@@ -7,6 +7,7 @@ import CreatePost from "../CreatePost";
 import SideBar from "../../comps/SideBar";
 import BiddingBar from "../../comps/BiddingBar";
 import ProgressBar from "../../comps/ProgressBar";
+import ProjectSmallTab from "../../comps/ProjectSmallTab";
 import Upgrade from "../../comps/SideBar/Upgrade";
 import ProjectBar from "../../comps/ProjectsBar";
 import SimpleBar from 'simplebar-react';
@@ -94,6 +95,13 @@ let SavedUser = () => {
                         font={"20px"}
                     />
                     <p className={"select-text"}>Select a project</p>
+                    </div>
+                    <div className={"project-tabs"}>
+                        <ProjectSmallTab type="bids"/>
+                        <ProjectSmallTab />
+                        <ProjectSmallTab type="completedphases"/>
+                        <ProjectSmallTab type="deadline"/>
+
                     </div>
             </div>
         </div>

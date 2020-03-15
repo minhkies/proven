@@ -1,0 +1,35 @@
+.tab-container{
+display: flex;
+height: 87px;
+width:20%;
+background: #FFFFFF;
+box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.03);
+border-radius: 10px;
+.content{
+    display: flex;
+    align-items: center;
+justify-content: space-between;   
+width: 60%;
+ padding: 20px;
+}
+.sign-cont{
+    border-radius: 100%;
+    padding: 10px;
+}
+.text-cont{
+    margin-left: 30px;
+    .text1{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        color:#4FAAFF;
+    }
+    .text2{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+    }
+}
+}

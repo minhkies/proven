@@ -124,6 +124,7 @@ margin-top: -5px;
   }
   .project-analytics{
     display: flex;
+    flex-direction: column;
     margin-top: 50px;
     .select-text{
       margin-top: 5px;
@@ -131,5 +132,9 @@ margin-top: -5px;
   }
   .analytics-header{
     display: flex;
+  }
+  .project-tabs{
+    display: flex;
+    justify-content: space-between;
   }
 }
