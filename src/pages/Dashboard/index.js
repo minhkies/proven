@@ -11,6 +11,7 @@ import ProjectSmallTab from "../../comps/ProjectSmallTab";
 import Upgrade from "../../comps/SideBar/Upgrade";
 import ProjectBar from "../../comps/ProjectsBar";
 import SimpleBar from 'simplebar-react';
+import * as FeatherIcon from "react-icons/fi";
 import 'simplebar/dist/simplebar.min.css';
 
 let CheckFirstTime = () =>{
@@ -39,9 +40,10 @@ let FirstTime = () => {
 };
 
 let SavedUser = () => {
+   var Icon = FeatherIcon["FiCircle"];
     var projects= localStorage.getItem("projects");
     projects = JSON.parse(projects);
-    console.log(projects.length);
+    console.log(projects);
     return (
         
         <div className="dashboard-content-container">
@@ -98,10 +100,38 @@ let SavedUser = () => {
                     </div>
                     <div className={"project-tabs"}>
                         <ProjectSmallTab type="bids"/>
-                        <ProjectSmallTab />
+                        <ProjectSmallTab/>
                         <ProjectSmallTab type="completedphases"/>
                         <ProjectSmallTab type="deadline"/>
 
+                    </div>
+                    <div className={"project-graphs"}>
+                        <div className={"project-budget"}>
+                            <p className={"budget-text"}>Project Budget</p>
+                            <div className={"info-container"}>
+                                <div className={"bar-graph"}>hi</div>
+                                <div className={"budget-total-info"}>
+                                    <p className={"budget-total-text"}>Total Budget</p>
+                                    <p className={"budget-number"}>$85000</p>
+                                    <div className={"budget-remaining-info"}>
+                                        <div className={"remaining-container"}>
+                                            <p className={"remaining-text"}>Remaining</p>
+                                            <p className={"remaining-num"}>$23212</p>
+                                        </div>
+                                        <div className={"current-container"}>
+                                            <p className={"current-text"}>Currently</p>
+                                            <p className={"current-num"}>3% over</p>
+                                        </div>
+                                    </div>
+                                    <p className={"budget-graph-text"}><Icon stroke-width="0" fill="#729CA2"/>Total Budget</p>
+                                    <p className={"budget-amount-text"}><Icon stroke-width="0" fill="#C4DCDF"/>Budget Amount Used</p>
+                                    <p className={"target-amount-text"}><Icon stroke-width="0" fill="#FFC539"/>Target Amount Used</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={"phase-budget"}>
+                        <p className={"phase-text"}>Phase Budget</p>
+                        </div>
                     </div>
             </div>
         </div>

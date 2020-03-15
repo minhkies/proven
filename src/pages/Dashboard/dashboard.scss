@@ -72,7 +72,8 @@
       }
       .profile-container{
         display: flex;
-        align-items: center;
+        align-items: center; 
+
         .profile-photo{
           background-image: url("../../media/img/profile.png");
           background-size: cover;
@@ -92,7 +93,7 @@
 
   }
   .project-selection-container{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     .project-selection-header{
@@ -106,6 +107,7 @@
     .simplebar-content{
       display: flex;
       flex-wrap: wrap;
+      margin-top:-50px;
     }
     .upgrade-container{
       margin-top: 100px;
@@ -125,7 +127,7 @@ margin-top: -5px;
   .project-analytics{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: -10px;
     .select-text{
       margin-top: 5px;
     }
@@ -136,5 +138,75 @@ margin-top: -5px;
   .project-tabs{
     display: flex;
     justify-content: space-between;
+  }
+  .project-graphs{
+    display:flex;
+    justify-content: space-between;
+  }
+  .project-budget,.phase-budget{
+    width: 515px;
+    height: 230px;
+    padding: 15px;
+    background: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  .info-container{
+    display: flex;
+    justify-content: space-around;
+  }
+  .budget-total-info{
+    width: 40%;
+  }
+  .budget-remaining-info{
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    margin-top:-20px;
+  }
+  .budget-text{
+    font-family: Bai Jamjuree;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #729CA2;
+  }
+  .budget-number{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #4FAAFF;
+    margin-top: -10px;
+  }
+  .budget-total-text,.remaining-text,.current-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+  }
+  .remaining-num,.current-num{
+    margin-top: -10px;
+  }
+  .remaining-num{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #72C850;
+  }
+  .current-num{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #FF6660;
+  }
+  .budget-graph-text,.budget-amount-text,.target-amount-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
   }
 }

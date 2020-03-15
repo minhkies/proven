@@ -22,9 +22,9 @@
     }
     .folder-svg-active{
         background-image: url("../../media/img/folder-orange.svg");
-        width: 226px;
-        height: 150px;
-        margin-right: 70px;
+        width: 222.71px;
+        height: 135.6px;
+        margin-right: 40px;
         background-size: contain;
         background-repeat: no-repeat;
         display: flex;
@@ -38,9 +38,9 @@
     }
     .folder-svg-inactive{
         background-image: url("../../media/img/folder-white.svg");
-        width: 226px;
-       height: 150px;
-       margin-right: 70px;
+        width: 222.71px;
+        height: 135.6px;
+        margin-right: 40px;
        background-size: contain;
        background-repeat: no-repeat;
        display: flex;
@@ -55,15 +55,16 @@
 
        .folder-svg-new{
         background-image: url("../../media/img/folder-white.svg");
-         width: 226px;
-       height:150px;
-       margin-right: 70px;
+        width: 222.71px;
+        height: 135.6px;
+        margin-right: 40px;
        background-size: contain;
        background-repeat: no-repeat;
        display: flex;
        justify-content: center;
        align-items: center;
        padding: 10px;
+       padding-left: 0px;
        color:#FF893B;
        font-family: Bai Jamjuree;
        font-style: normal;
@@ -72,9 +73,10 @@
        }
        .folder-svg-locked{
         background-image: url("../../media/img/folder-locked.svg");
-        width: 226px;
-      height:150px;
-      margin-right: 70px;
+        width: 222.71px;
+        height: 135.6px;
+        margin-right: 40px;
+        padding-left: 0px;
       background-size: contain;
       background-repeat: no-repeat;
       display: flex;
