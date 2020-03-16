@@ -1,3 +1,4 @@
+@import "../CreatePost/create-post.scss";
 .dimmer{
   background: rgba(70,84,97,.2);
   position: absolute;
@@ -49,6 +50,7 @@
   padding:50px;
   margin: 0;
   display: flex;
+  flex:1;
   flex-direction: column;
   .welcome-bar-container{
     display: flex;
@@ -72,7 +74,8 @@
       }
       .profile-container{
         display: flex;
-        align-items: center;
+        align-items: center; 
+
         .profile-photo{
           background-image: url("../../media/img/profile.png");
           background-size: cover;
@@ -92,7 +95,7 @@
 
   }
   .project-selection-container{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     .project-selection-header{
@@ -101,10 +104,167 @@
     }
     .folder-container{
       display: flex;
-      overflow-y: hidden;
-      //overflow-x: scroll;
-      height: 200px;
       margin-top: 50px;
     }
+    .simplebar-content{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top:-50px;
+    }
+    .upgrade-container{
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      *{
+margin-top: -5px;
+      }
+      .upgrade-text{
+        font-weight: bold;
+      }
+    }
+    
+  }
+  .project-analytics{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    .select-text{
+      margin-top: 5px;
+    }
+  }
+  .analytics-header{
+    display: flex;
+
+  }
+  .project-tabs{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .project-graphs{
+    display:flex;
+    justify-content: space-between;
+  }
+  .bar-graph{
+    width: 15vw;
+    background-image: url("../../media/img/bar-graph.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .project-budget,.phase-budget{
+    width: 515px;
+    padding: 15px;
+    background: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  .info-container{
+    display: flex;
+    justify-content: space-around;
+  }
+  .budget-total-info{
+    margin-top: -20px;
+    width: 40%;
+  }
+  .budget-remaining-info{
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    margin-top:-20px;
+  }
+  .budget-text,.phase-text{
+    font-family: Bai Jamjuree;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #729CA2;
+  }
+  .budget-number{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #4FAAFF;
+    margin-top: -10px;
+  }
+  .budget-total-text,.remaining-text,.current-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+  }
+  .remaining-num,.current-num{
+    margin-top: -10px;
+  }
+  .remaining-num{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #72C850;
+  }
+  .current-num{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #FF6660;
+  }
+  .budget-graph-text,.budget-amount-text,.target-amount-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+  }
+  .phase-info-cont {
+    display:flex;
+    justify-content: space-around;
+  }
+  .phase-pie{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    width: 30%;
+    height: 19vh;
+    background-image: url("../../media/img/pie-graph.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .phase-info{
+    margin-left: -40px;
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+
+  }
+  .phase-name{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .phase-budget-number{
+    margin-top:11px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    margin-bottom: 16px;
+
+  }
+  .phases-cont,.phase-budget-text{
+    font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+
+
   }
 }

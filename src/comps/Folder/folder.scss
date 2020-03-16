@@ -3,7 +3,7 @@
         font-family: Open Sans;
         font-style: normal;
         font-weight: 300;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
     .heading-inactive{
         display: none;
@@ -22,13 +22,13 @@
     }
     .folder-svg-active{
         background-image: url("../../media/img/folder-orange.svg");
-        width: 226px;
-        height: 150px;
+        width: 15vw;
+        margin-right: 40px;
         background-size: contain;
         background-repeat: no-repeat;
-        display: flex;
-        justify-content: flex-end;
         padding: 10px;
+               display: flex;
+       justify-content: flex-end;
         color:white;
         font-family: Bai Jamjuree;
         font-style: normal;
@@ -37,8 +37,8 @@
     }
     .folder-svg-inactive{
         background-image: url("../../media/img/folder-white.svg");
-        width: 226px;
-       height: 150px;
+        width: 15vw;
+        margin-right: 40px;
        background-size: contain;
        background-repeat: no-repeat;
        display: flex;
@@ -52,20 +52,22 @@
        }
 
        .folder-svg-new{
-        background-image: url("../../media/img/folder-white.svg");
-         width: 226px;
-       height:150px;
-       background-size: contain;
-       background-repeat: no-repeat;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       padding: 10px;
-       color:#FF893B;
-       font-family: Bai Jamjuree;
-       font-style: normal;
-       font-weight: bold;
-       flex-direction: column;
+        background-image: url("../../media/img/folder-new.svg");
+        width: 15vw;
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding:10px;
+        height: auto;
+        margin-right: 40px;
+       }
+       .folder-svg-locked{
+        background-image: url("../../media/img/folder-locked.svg");
+        width: 15vw;
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding:10px;
+        height: auto;
+        margin-right: 40px;
        }
        .remove-folder{
            display: none;
