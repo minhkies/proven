@@ -6,7 +6,7 @@ import 'simplebar/dist/simplebar.min.css';
 import CategoryBtn from "../../../comps/CategoryBtn";
 import BottomBtnBar from "../../../comps/BottomBtnBar";
 
-export default function AddPhases({value, setValue, setNextStep, completedStep, setCompletedStep, setStepRefresh, StepRefresh, phaseVendors, setPhaseVendors}) {
+export default function AddPhases({value, setValue, setNextStep, completedStep, setCompletedStep, setStepRefresh, stepRefresh, phaseVendors, setPhaseVendors}) {
     let [refresh, setRefresh] = useState(true);
     let [currentInp, setCurrentInp] = useState({
         details: null,
@@ -211,7 +211,7 @@ export default function AddPhases({value, setValue, setNextStep, completedStep, 
             rightBtn2OnClick={() => {
                 setNextStep(4);
                 setCompletedStep(completedStep.concat(3));
-                setStepRefresh(!setRefresh);
+                setStepRefresh(!stepRefresh);
                 let currentData = JSON.parse(sessionStorage.getItem("currentData"));
                 currentData.phases = value;
                 sessionStorage.setItem("currentData", JSON.stringify(currentData));

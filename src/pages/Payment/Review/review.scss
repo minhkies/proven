@@ -1,0 +1,126 @@
+.review-container{
+  margin-bottom: 50px;
+  .preview-card-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: #465461;
+    box-shadow: 3px 3px 22px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    margin: 100px 30px;
+    .left-card-container{
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 50px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .plan-name{
+        font-family: Bai Jamjuree, sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #FF893B;
+        margin: 0;
+      }
+      .plan-price{
+        font-family: Bai Jamjuree, sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        margin: 15px 0;
+        .monthly{
+          font-size: 12px;
+        }
+      }
+      .des{
+        font-family: "Open Sans", sans-serif;
+        margin: 0 50px 20px 50px;
+        text-align: center;
+        font-weight: 500;
+      }
+      .features-container{
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+        align-items: center;
+        margin: 0 0 10px 10px;
+        width: 100%;
+        .feature-tick{
+          justify-self: start;
+        }
+        .feature-txt{
+          margin: 0
+        }
+      }
+      .promo{
+        font-family: Open Sans, sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        color: black;
+        text-decoration: underline;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+    .right-card-container{
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      .order-summary{
+        font-family: Bai Jamjuree, sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #FF893B;
+        padding: 0 0 50px 20px;
+      }
+      .plan-container, .tax-container, .subtotal-container, .total-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        font-family: Open Sans, sans-serif;
+        font-size: 14px;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .plan-container{
+        font-weight: 600;
+      }
+      .tax-container{
+        padding-bottom: 20px;
+        border-bottom: solid 1px white;
+      }
+      .subtotal-container{
+        font-weight: 600;
+        margin: 10px 0;
+      }
+      .total-container{
+        font-size: 16px;
+        background: #404D59;
+        font-weight: 600;
+      }
+    }
+  }
+  .bottom-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .term-container {
+      display: flex;
+      align-items: center;
+      .lock-icon{
+        color: #979797;
+        height: 20px;
+        width: 20px;
+      }
+      .term {
+        font-family: Bai Jamjuree, sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        color: #979797;
+        margin-left: 10px;
+
+      }
+    }
+  }
+}

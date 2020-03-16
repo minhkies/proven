@@ -6,25 +6,51 @@ import Confirm from "./Confirm";
 import Review from "./Review";
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
+import AddVendors from "../CreatePost/AddVendors";
 
 
 export default function Payment() {
     let [completedStep, setCompletedStep] = useState([]);
     let [currentStep, setCurrentStep] = useState(1);
     let [refresh, setRefresh] = useState(true);
+    let [data, setData] = useState({});
     let progressStep = [
         {
             stepTxt: "Payment",
             path: "/Payment/Selection",
-            comps: <Selection/>
+            comps: <Selection
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
+                data={data}
+                setData={setData}
+            />
         },{
             stepTxt: "Review",
             path: "/Payment/Review",
-            comps: <Review/>
+            comps: <Review
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
+                data={data}
+                setData={setData}
+            />
         },{
             stepTxt: "Confirm",
             path: "/Payment/Confirm",
-            comps: <Confirm/>
+            comps: <Confirm
+                setNextStep={setCurrentStep}
+                setCompletedStep={setCompletedStep}
+                completedStep = {completedStep}
+                stepRefresh={refresh}
+                setStepRefresh={setRefresh}
+                data={data}
+                setData={setData}
+            />
         }
     ];
     return(
