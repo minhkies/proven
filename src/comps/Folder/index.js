@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import * as FeatherIcon from "react-icons/fi";
-
+import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 export default function Folder({type,heading,projectId,onClick,selected}){
     let [removed, setRemoved] = useState(false);
     let [select, setSelect] = useState(false);
@@ -39,7 +39,7 @@ else if(type="locked"){
 }
     return(
         <div className={"folder-container"}>
-            <div className ={folderType} onClick={()=>{!selected?setSelect(!select):(setRemoved(true))}}>
+            <div className ={folderType} onClick= {()=>{!selected?setSelect(!select):(setRemoved(true))}}>
                 <div className = {headingStyle}>{heading}</div>
                 <div className = {addressStyle}>{projectId}</div>
             </div>
