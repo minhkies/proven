@@ -5,7 +5,7 @@ import Header from "../../comps/Header";
 import Folder from "../../comps/Folder";
 import CreatePost from "../CreatePost";
 import SideBar from "../../comps/SideBar";
-import BiddingBar from "../../comps/BiddingBar";
+
 import ProgressBar from "../../comps/ProgressBar";
 import NotificationCard from "../../comps/NotificationCard";
 import ProjectSmallTab from "../../comps/ProjectSmallTab";
