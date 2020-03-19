@@ -1,21 +1,30 @@
-import React from "react";
-import * as FeatherIcon from "react-icons/fi";
+import React from "react";  
 
-export default function BiddingBar({bidder,price,job}){
-    let Icon = FeatherIcon["FiCircle"];
+export default function ProjectList({name,id,startdate,enddate,amount,letter}){
     return(
-        <div className={"bar-container"}>
-            <Icon className="icon" fill="#DBDDE0" stroke="none" size={25}/>
-                <div className={"bidder-name"}>{bidder}</div> 
-            <div className={"price"}>{price}</div>
-            <div className={"job"}>{job}</div>
-
+        <div className = {"bar-container"}>
+        <div className={"bar-title"}>
+            <div className={"left-head"}>
+            <span className="icon">{letter}</span>
+            <p className="project-name">{name}</p>
+            </div>
+            <p className="project-id">{id}</p>
+        </div>
+        <div className={"bar-other-titles"}>
+            <p>{startdate}</p>
+            <p>{enddate}</p>
+            <p>{amount}</p>
+            <p>Status</p>
+        </div>
         </div>
     )
 }
 
-BiddingBar.defaultProps = {
-    bidder: "Bidder",
-    price: "Price",
-    job:"Job"
+ProjectList.defaultProps = {
+    name:"",
+    id:"",
+    startdate:"",
+    enddate:"",
+    amount:"",
+    letter:""
 };

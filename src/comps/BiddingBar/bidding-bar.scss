@@ -1,23 +1,65 @@
 .bar-container{
+    height: auto;
     display: flex;
-    padding: 10px;
-    margin-top:20px;
-    align-items: center;
-    background-color: #FFFFFF;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.03);
-    border-radius: 5px;
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    .price,.job{
-        font-weight: normal; 
-    }
+    justify-content: space-around;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 5px;
     .icon{
-        margin-right: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #729CA2;
+        width: 30px;
+        height: 30px;
+        border-radius: 80px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+
+color: #FFFFFF;
     }
-    .price{
-        margin-left: 900px;
-        margin-right: 30px;
+    .project-name{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #000000;
+
+    }
+    .project-id{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #000000;
+    }
+    .left-head{
+        display: flex;
+        justify-content: space-between;
+        width:50%;
+        align-items: center;
+        margin-left:-50px
+    }
+    .bar-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 25%;
+        margin-left:-85px;
+    }
+    .bar-other-titles{
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+        margin-right: -84px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;
     }
 }
