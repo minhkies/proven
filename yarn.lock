@@ -2672,6 +2672,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
   integrity sha512-u/SJDyXwuihpwjXy7hOOghagLEV1KdAST6syfnOk6QZAMzZuWZqXy5aYYZbh8Jdpd4escVFP0MvftHNDb9pruA==
 
+"@types/node@>=8.1.0":
+  version "13.9.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.9.1.tgz#96f606f8cd67fb018847d9b61e93997dabdefc72"
+  integrity sha512-E6M6N0blf/jiZx8Q3nb0vNaswQeEyn0XlupO+xN6DtJ6r6IT4nXrTry7zhIfYvFCl3/8Cu6WIysmUBKiqV0bqQ==
+
 "@types/node@^7.0.18":
   version "7.10.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.10.9.tgz#4343e3b009f8cf5e1ed685e36097b74b4101e880"
@@ -13912,12 +13917,13 @@ stripe-terminal@^2.0.1:
     core-js "^2.6.5"
     regenerator-runtime "^0.13.3"
 
-stripe@v2:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-2.9.0.tgz#ee719bbf12e6b55afd747f371e0d43af8f3111cf"
-  integrity sha1-7nGbvxLmtVr9dH83Hg1Dr48xEc8=
+stripe@^8.32.0:
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.32.0.tgz#0f034e8f29379a6e7552f0e00472df449c5e8ef5"
+  integrity sha512-38saMK54VCgVZO9vn1kZFRZQH1+S4Y09e9vdbilNXHuVPD6S66ISiDpnaKLDjrl8QxKWCmNjDWnarJQSxETYGA==
   dependencies:
-    when "~3.1.0"
+    "@types/node" ">=8.1.0"
+    qs "^6.6.0"
 
 style-loader@0.23.1:
   version "0.23.1"
@@ -14953,11 +14959,6 @@ whatwg-url@^7.0.0:
     lodash.sortby "^4.7.0"
     tr46 "^1.0.1"
     webidl-conversions "^4.0.2"
-
-when@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/when/-/when-3.1.0.tgz#a2479659ca15f725541ecf52ebae091b781ee134"
-  integrity sha1-okeWWcoV9yVUHs9S664JG3ge4TQ=
 
 which-module@^1.0.0:
   version "1.0.0"

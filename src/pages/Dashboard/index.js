@@ -41,22 +41,27 @@ let FirstTime = () => {
 };
 
 let SavedUser = () => {
-   var Icon = FeatherIcon["FiCircle"];
-    var projects= localStorage.getItem("projects");
-    projects = JSON.parse(projects);
-    console.log(projects);
+    let Icon = FeatherIcon["FiCircle"];
+    let projects= JSON.parse(localStorage.getItem("projects"));
+    let profile = JSON.parse(localStorage.getItem("profile"));
+    let allowProjects = 2;
     const [notification,setNotification] = useState(true);
+    if (profile.tier === 1){
+        allowProjects = 2
+    } else if (profile.tier === 2){
+        allowProjects = 10
+    }
     return (
-        
+
         <div className="dashboard-content-container">
-             
+
             <div className={"welcome-bar-container"}>
-     
+
                 <div className={"left-welcome-container"}>
                     <p>Welcome back, <span className={"welcome-username"}>Lawrence</span></p>
                 </div>
                 <div className={"right-welcome-container"}>
-    
+
                     <img className={"notification"} src={Notification_active} alt={"Notification"}/>
                     <div className={"profile-container"}>
                         <div className={"profile-photo"}/>
@@ -66,21 +71,21 @@ let SavedUser = () => {
             </div>
             <div className={"project-selection-container"}>
                 <div className={"project-selection-header"}>
-       
+
                     <Header
                         headingTxt={"Recent Projects"}
                         margin={false}
                         font={"20px"}
                     />
                     <ProjectBar
-                        projects={2}
+                        projects={allowProjects}
                         completed={projects.length}
                     />
                 </div>
 
-                <SimpleBar style={{ maxHeight: 300 }} className={"folder-container"}>
+                <SimpleBar>
                 {projects.map((o,i)=>(
-            
+
                             <Folder
                             key={i}
                             heading={o.projectId}
@@ -90,11 +95,11 @@ let SavedUser = () => {
                          <Folder type="new" />
                         <Folder type="locked"/>
                         <div className={"upgrade-container"}>
-                    <p className={"upgrade-text"}>Upgrade to unlock more projects.</p>
-                    <p>Choose a plan that fits your needs.</p>
-                    <Upgrade text={"See Pricing Plans"}/>
-                    </div>
-                </SimpleBar> 
+                            <p className={"upgrade-text"}>Upgrade to unlock more projects.</p>
+                            <p>Choose a plan that fits your needs.</p>
+                            <Upgrade text={"See Pricing Plans"}/>
+                        </div>
+                </SimpleBar>
             </div>
             <div className={"project-analytics"}>
                 <div className={"analytics-header"}>
@@ -115,7 +120,7 @@ let SavedUser = () => {
                         <div className={"project-budget"}>
                             <p className={"budget-text"}>Project Budget</p>
                             <div className={"info-container"}>
-                                <div className={"bar-graph"}></div>
+                                <div className={"bar-graph"}/>
                                 <div className={"budget-total-info"}>
                                     <p className={"budget-total-text"}>Total Budget</p>
                                     <p className={"budget-number"}>$85,000</p>
@@ -159,10 +164,10 @@ let SavedUser = () => {
                         </div>
                     </div>
             </div>
-    
+
         </div>
-        
-        
+
+
     )
 };
 

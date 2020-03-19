@@ -26,7 +26,7 @@ var botText,iconColor,Icon = null;
     }
     return <div className={"tab-container"}>
             <div className ={"content"}>
-                <div style={{background:iconColor}} className={"sign-cont"}> <Icon size={22} color="white" /> </div>
+                <div style={{background:iconColor}} className={"sign-cont"}> <Icon size={22} color="white" /></div>
                     <div className ="text-cont">
                         <div className={"text1"}>{num}</div>
                         <div className={"text2"}>{botText}</div>

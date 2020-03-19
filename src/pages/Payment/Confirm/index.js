@@ -15,6 +15,8 @@ import {Link} from "react-router-dom";
 // import bodyParser from "body-parser";
 // import pino from "express-pino-logger";
 
+import Stripe from 'stripe';
+
 
 export default function Confirm({setNextStep, completedStep, setCompletedStep, setStepRefresh, stepRefresh, sdata, setData}) {
 
@@ -59,30 +61,53 @@ export default function Confirm({setNextStep, completedStep, setCompletedStep, s
             address_state: data.bill.province,
             address_zip: data.bill.zip,
             address_country: "Canada"
-        }
+        },
     };
 
-    const onPayment = () => {
-        stripe.createToken(information).then((response)=>{
-            console.log(response);
-            if (response.error){
-                console.log("huhuhuhu", response.error)
-            } else {
-                console.log("hihihihi", response.id)
-            }
-        });
+    // const stripe = new Stripe('pk_test_GYUauDShkSZSJ0MAUEnMNaji00EvOPY0m8');
+    // const onTokens = async () => {
+    //     const tokens = await stripe.tokens.create(information);
+    //     console.log(tokens);
+    // };
+    //
+    // onTokens();
 
+    // const onTokens = async () => {
+    //
+    //     console.log("huhuhu");
+    //
+    //     const tokens = await stripe.tokens.create(information, function (status, response) {
+    //         console.log("hhaha", status);
+    //         console.log("hihi", response);
+    //     });
+    //
+    //     console.log("hehe", tokens)
+    // };
+    //
+    // onTokens();
+
+
+    // const onPayment = () => {
+    //     stripe.createToken(information).then((response)=>{
+    //         console.log(response);
+    //         if (response.error){
+    //             console.log("error", response.error)
+    //         } else {
+    //             console.log("token", response.id)
+    //         }
+    //     });
+    //
+    // };
+
+    // onPayment();
+
+
+    const onPayment = async () => {
+        let card = await stripe.createToken(information);
+        console.log("hihihihi", card)
     };
 
     onPayment();
-
-
-    // const onPayment = async () => {
-    //     let card = await stripe.createToken(information);
-    //     console.log("hihihihi", card.token)
-    // };
-    //
-    // onPayment();
 
     const changeTier = () => {
         let currentTier = 0;
