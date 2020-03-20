@@ -1,0 +1,43 @@
+.tab-container{
+display: flex;
+background: #FFFFFF;
+box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.03);
+border-radius: 10px;
+.content{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+
+
+}
+.sign-cont{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-cont{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    .text1{
+        display: flex;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        color:#4FAAFF;
+    }
+    .text2{
+        display: flex;
+        flex-direction: row;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+    }
+}
+}

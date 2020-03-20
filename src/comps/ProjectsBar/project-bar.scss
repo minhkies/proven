@@ -1,0 +1,32 @@
+.project-bar-container{
+  display: flex;
+  align-items: center;
+  .project-bar{
+    display: flex;
+    width: 7vw;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    .piece{
+      background-color: #DBDDE0;
+      height: 7px;
+      margin-right: 1px;
+      flex: 1
+    }
+    .unlimited-piece{
+      background-color: #FF893B;
+      height: 7px;
+      flex: 1
+    }
+
+    .completed-piece{
+      background-color: #FF893B;
+    }
+  }
+  .project-bar-des{
+    font-family: Bai Jamjuree, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    margin: 0
+  }
+}
+

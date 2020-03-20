@@ -10,8 +10,14 @@
 @import "comps/InputField/input-field";
 @import "comps/VendorCard/vendor-card";
 @import "comps/PreviewInfoDisplay/preview-info-display";
+@import "comps/Folder/folder";
+@import "comps/BiddingBar/bidding-bar";
+@import "comps/ProjectsBar/project-bar";
+@import "comps/Tiers/tiers";
+@import "comps/ProjectSmallTab/project-small-tab";
+@import "comps/NotificationCard/notification-card";
 
  body{
-   background-color: #F2F2F2;
+   background-color: #FAFAFA;
    font-size: 10pt;
  }

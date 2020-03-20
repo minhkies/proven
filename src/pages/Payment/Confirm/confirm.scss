@@ -1,0 +1,65 @@
+.confirm-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .light-box{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .confirm-popup-container{
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 40px 150px;
+    .thanks{
+      font-family: Bai Jamjuree, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      text-align: center;
+      color: #333333;
+      .name{
+        color: #FF893B
+      }
+    }
+    .confirm-img{
+      margin: 20px;
+    }
+    .confirm-des{
+      text-align: center;
+      font-family: Bai Jamjuree, sans-serif;
+      font-size: 15px;
+      margin-top: 30px;
+      .confirm-email{
+        font-weight: 600;
+      }
+    }
+    .go-to-dash{
+      font-family: Bai Jamjuree, sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-align: center;
+      color: #FFFFFF;
+      padding: 15px 25px;
+      background-color: #FF893B;
+      border-radius: 100px;
+      text-decoration: none;
+      margin-top: 30px;
+    }
+  }
+}

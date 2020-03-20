@@ -16,7 +16,7 @@ export default function CreatePost({setCollapse}) {
     let [completedStep, setCompletedStep] = useState([]);
     let [currentStep, setCurrentStep] = useState(1);
     let [refresh, setRefresh] = useState(true);
-    setCollapse(true);
+    // setCollapse(true);
     let progressStep = [
         {
             stepTxt: "Vendors",

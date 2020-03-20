@@ -1,0 +1,37 @@
+.projects-button{
+    width: 20%;
+}
+.projects-cont{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.current-projects-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top:20px;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #979797;
+    padding: 10px;
+    .title-init{
+        flex: 4;
+    }
+    .title-name{
+        flex: 13;
+    }
+    .title-id{
+        flex: 20;
+    }
+    .title-start-date, .title-end-date, .title-amount, .title-status{
+        flex: 7
+    }
+}
+.project-list{
+    display: flex;
+    flex-direction: column;
+
+}

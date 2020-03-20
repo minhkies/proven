@@ -1,0 +1,49 @@
+.bar-container{
+    height: auto;
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    .init-container{
+        flex: 4;
+        display: flex;
+        align-items: center;
+        .icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #729CA2;
+            width: 35px;
+            height: 35px;
+            border-radius: 80px;
+            font-family: Open Sans, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            color: #FFFFFF;
+            margin-left: 10px;
+        }
+    }
+    .project-name{
+        font-family: Open Sans, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #000000;
+        flex: 13
+
+    }
+    .project-id{
+        font-family: Open Sans, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #000000;
+        flex: 20
+    }
+
+    .start-date, .end-date, .amount, .status{
+        flex: 7
+    }
+}

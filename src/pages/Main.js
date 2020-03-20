@@ -3,8 +3,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
 } from "react-router-dom";
+
 import SideBar from "../comps/SideBar";
 import Logo from "../comps/Logo";
 import Menu from "../comps/Menu";
@@ -13,6 +14,7 @@ import CreatePost from "./CreatePost";
 import Dashboard from "./Dashboard";
 import Projects from "./Projects";
 import Vendors from "./Vendors";
+import Payment from "./Payment";
 
 export default function Main() {
     let [collapse, setCollapse] = useState(false);
@@ -38,17 +40,22 @@ export default function Main() {
     const routes = [
         {
             path: "/Dashboard",
-            page: <Dashboard setCollapse = {setCollapse}/>
+            page: <Dashboard setCollapse={setCollapse}/>,
+            exact: true
         },
         {
             path: "/Projects",
-            page: Projects
+            page: <Projects/>
         },{
             path: "/Vendors",
-            page: Vendors
+            page: <Vendors/>
         },{
             path: "/CreatePost",
-            page: <CreatePost setCollapse = {setCollapse}/>
+            page: <CreatePost setCollapse={setCollapse}/>
+        },
+        {
+            path: "/Payment",
+            page: <Payment/>
         }
     ];
 
@@ -66,15 +73,18 @@ export default function Main() {
                     />
                     <Upgrade/>
                 </SideBar>
+
                 <div className={"main-content"}>
                     <Switch>
                         {routes.map((r, i) => (
                             <Route
                                 key={i}
                                 path={r.path}
-                                children={r.page}
+                                children={()=>r.page}
+                                exact={r.exact}
                             />
                         ))}
+
                     </Switch>
                 </div>
             </div>

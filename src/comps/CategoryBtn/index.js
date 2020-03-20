@@ -1,3 +1,4 @@
+
 import React, {useState} from "react";
 import * as FeatherIcon from "react-icons/fi";
 
@@ -25,6 +26,7 @@ export default function CategoryBtn({name, type, selected, menuIcon, onclick, ph
     } else if (type==="view"){
         btnStyle= "category-btn-container-select";
     }
+  
      return(
             <div className={"category-btn-container" + " " + btnStyle + " " + (removed&&"removed-category") + " " + ((type!=="bubble"&&type!=="list")&&"even-padding-btn")} onClick={()=>{
 

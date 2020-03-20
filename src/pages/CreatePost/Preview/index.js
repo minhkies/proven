@@ -171,12 +171,22 @@ export default function Preview({value, setValue, setNextStep, completedStep, se
                     rightBtn1Txt={"Cancel"}
                     rightBtn2Txt={"Post Project"}
                     rightBtn2OnClick={() => {
+                        let projects = [];
                         // setNextStep(4);
                         // setCompletedStep(completedStep.concat(3));
                         // setStepRefresh(!setRefresh);
                         // let currentData = JSON.parse(sessionStorage.getItem("currentData"));
                         // currentData.phases = value;
                         // sessionStorage.setItem("currentData", JSON.stringify(currentData));
+                        let currentData = JSON.parse(sessionStorage.getItem("currentData"));
+                        currentData.projectDetails.phases = currentData.phases;
+                        localStorage.setItem("vendors", JSON.stringify(currentData.vendors));
+                        if (localStorage.getItem("projects")!==null){
+                            projects = JSON.parse(localStorage.getItem("projects"));
+                        }
+                        projects.push(currentData.projectDetails);
+                        localStorage.setItem("projects", JSON.stringify(projects));
+                        localStorage.setItem("profile", JSON.stringify({name: "Lawrence", tier: 1, trial: true}))
                     }}
                     nextStep={"./Preview"}
                 />

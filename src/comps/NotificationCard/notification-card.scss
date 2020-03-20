@@ -1,0 +1,70 @@
+.notification-cont{
+   .notification-header{
+       display:flex;
+       align-items: center;
+       justify-content: space-between;
+       width: calc(21vw - 30px);
+   }
+   .notification-innercont{
+       display: flex;
+       flex-direction: column;
+    background: #404D59;
+    border-radius: 10px;
+    width: calc(25vw - 30px);
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 10px;
+
+   }
+    .delete-icon{
+display: flex;
+justify-content: flex-end;
+
+    }
+    .inner-headings>p{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 10px;
+        color: #FFFFFF;
+    }
+    .inner-details>p{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        color: #FFFFFF;
+        margin-left: 40px;
+        
+    }
+    .container{
+        display: flex;
+    }
+    .bid-heading{
+        font-family: Bai Jamjuree;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #ECF3F4;
+    }
+    .notification-header>p{
+        font-family: Bai Jamjuree;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        color: #ECF0F4;
+    }
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #FFC539;
+        padding: 2px 2px 2px 2px;
+        width: 50%;
+        border-radius: 30px;
+        margin-left: -2px;
+        font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+    }
+}

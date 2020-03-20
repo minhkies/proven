@@ -1,5 +1,6 @@
 .header-container{
   font-family: Bai Jamjuree, sans-serif;
+  margin-right: 20px;
 
   & .heading-txt{
     font-weight: bold;
@@ -7,6 +8,10 @@
     color: #FF893B;
     margin-top: 0;
   };
+
+  & .remove-bot{
+    margin: 0
+  }
 
   & .sub-txt{
     font-weight: 500;
