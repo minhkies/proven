@@ -32,5 +32,5 @@ else {
 ProjectBar.defaultProps = {
     projects: 2,
     completed: 1,
-    unlimited:true,
+    unlimited: false,
 };

@@ -45,11 +45,13 @@ let SavedUser = () => {
     let projects= JSON.parse(localStorage.getItem("projects"));
     let profile = JSON.parse(localStorage.getItem("profile"));
     let allowProjects = 2;
-    const [notification,setNotification] = useState(true);
+    let unlimited = false;
     if (profile.tier === 1){
-        allowProjects = 2
+        allowProjects = 2;
     } else if (profile.tier === 2){
-        allowProjects = 10
+        allowProjects = 10;
+    } else if (profile.tier === 3){
+        unlimited = true;
     }
     return (
 
@@ -58,14 +60,14 @@ let SavedUser = () => {
             <div className={"welcome-bar-container"}>
 
                 <div className={"left-welcome-container"}>
-                    <p>Welcome back, <span className={"welcome-username"}>Lawrence</span></p>
+                    <p>Welcome back, <span className={"welcome-username"}>Laurence</span></p>
                 </div>
                 <div className={"right-welcome-container"}>
 
                     <img className={"notification"} src={Notification_active} alt={"Notification"}/>
                     <div className={"profile-container"}>
                         <div className={"profile-photo"}/>
-                        <p className={"username"}>Lawrence</p>
+                        <p className={"username"}>Laurence</p>
                     </div>
                 </div>
             </div>
@@ -80,6 +82,7 @@ let SavedUser = () => {
                     <ProjectBar
                         projects={allowProjects}
                         completed={projects.length}
+                        unlimited={unlimited}
                     />
                 </div>
 
@@ -93,8 +96,11 @@ let SavedUser = () => {
                             />
                         ))}
                          <Folder type="new" />
-                        <Folder type="locked"/>
-                        <div className={"upgrade-container"}>
+                         <div className={"lock-container"} style={allowProjects!==projects.length?{opacity: 0}:{}}>
+                             <Folder type="locked"/>
+                         </div>
+
+                        <div className={"upgrade-container"} style={allowProjects!==projects.length?{opacity: 0}:{}}>
                             <p className={"upgrade-text"}>Upgrade to unlock more projects.</p>
                             <p>Choose a plan that fits your needs.</p>
                             <Upgrade text={"See Pricing Plans"}/>

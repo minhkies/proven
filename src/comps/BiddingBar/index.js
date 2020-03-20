@@ -1,27 +1,24 @@
-import React from "react";  
+import React from "react";
 
 export default function ProjectList({name,id,startdate,enddate,amount,letter}){
     return(
         <div className = {"bar-container"}>
-        <div className={"bar-title"}>
-            <div className={"left-head"}>
-            <span className="icon">{letter}</span>
-            <p className="project-name">{name}</p>
+            <div className={"init-container"}>
+                <div className="icon">{letter}</div>
             </div>
+
+            <p className="project-name">{name}</p>
             <p className="project-id">{id}</p>
-        </div>
-        <div className={"bar-other-titles"}>
-            <p>{startdate}</p>
-            <p>{enddate}</p>
-            <p>{amount}</p>
-            <p>Status</p>
-        </div>
+            <p className={"start-date"}>{startdate}</p>
+            <p className={"end-date"}>{enddate}</p>
+            <p className={"amount"}>{amount}</p>
+            <p className={"status"}>Status</p>
         </div>
     )
 }
 
 ProjectList.defaultProps = {
-    name:"",
+    name: "",
     id:"",
     startdate:"",
     enddate:"",
